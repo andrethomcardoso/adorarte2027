@@ -311,8 +311,8 @@ td.num, th.num{text-align:right}
      =================================================================== -->
 <script>
 window.SUPABASE_CONFIG = {
-  url: 'https://mbybjptneeuhuinsikwc.supabase.co',      // ex.: 'https://abcdefgh.supabase.co'
-  anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ieWJqcHRuZWV1aHVpbnNpa3djIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk0OTcxOTYsImV4cCI6MjEwNTA3MzE5Nn0.ZBb8J4EZ-GztLwQEXoG4ITHFZ8qKHHO71wMd2wAkQJ8'   // ex.: 'eyJhbGciOiJIUzI1NiIsInR5cCI6...'
+  url: '',      // ex.: 'https://abcdefgh.supabase.co'
+  anonKey: ''   // ex.: 'eyJhbGciOiJIUzI1NiIsInR5cCI6...'
 };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
@@ -408,16 +408,25 @@ const Store = {
 
   async iniciar() {
     const cfg = window.SUPABASE_CONFIG || {};
-    if (cfg.url && cfg.anonKey && window.supabase) {
+    const url = urlSupabase(cfg.url);
+    const chave = String(cfg.anonKey || '').trim();
+    if (url && chave && window.supabase) {
       try {
-        await this.iniciarSupabase(cfg);
+        await this.iniciarSupabase({ url, anonKey: chave });
         this.modo = 'nuvem';
         this.pronto = true;
         this.emite();
         return;
       } catch (e) {
         console.error('supabase', e);
-        this.erroNuvem = (e && e.message) || 'falha ao conectar no Supabase';
+        const msg = (e && e.message) || 'falha ao conectar no Supabase';
+        this.erroNuvem = /invalid path|PGRST125/i.test(msg)
+          ? 'Confira a URL do projeto no index.html: ela deve ser só https://SEU-PROJETO.supabase.co, sem /rest/v1 nem barra no fim'
+          : /relation|does not exist|schema cache/i.test(msg)
+            ? 'As tabelas ainda não existem. Rode o arquivo supabase-setup.sql no SQL Editor do Supabase'
+            : /JWT|api key|Invalid API key/i.test(msg)
+              ? 'A chave anon parece incorreta. Copie de novo em Project Settings → API'
+              : msg;
       }
     }
     try {
@@ -715,6 +724,20 @@ const Store = {
     } catch (e) { toast('Não foi possível gerar o arquivo aqui.', 'bad'); return false; }
   }
 };
+
+/* Aceita a URL do projeto em qualquer formato que a pessoa tenha copiado:
+   com barra no fim, com /rest/v1 colado, ou até o endereço do painel
+   (supabase.com/dashboard/project/REF). Devolve sempre a raiz correta. */
+function urlSupabase(bruta) {
+  let u = String(bruta || '').trim().replace(/^["'<]+|["'>]+$/g, '');
+  if (!u) return '';
+  if (!/^https?:\/\//i.test(u)) u = 'https://' + u;
+  let p;
+  try { p = new URL(u); } catch (e) { return ''; }
+  const ref = p.pathname.match(/\/project\/([a-zA-Z0-9]{16,})/);
+  if (ref) return 'https://' + ref[1] + '.supabase.co';
+  return p.protocol + '//' + p.host;
+}
 
 async function dataUrlParaBlob(dataUrl) {
   const r = await fetch(dataUrl);
