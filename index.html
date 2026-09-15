@@ -1,0 +1,1951 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Adorar-te 2027 — Orçamento e Financeiro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF1F7; --surface:#FFFFFF; --surface-2:#F6F8FC; --surface-3:#EDF1F8;
+  --ink:#16213A; --ink-2:#445373; --muted:#6E7C97;
+  --line:#DCE3EF; --line-2:#C4D0E4;
+  --gold:#A8760F; --gold-ink:#7A560A; --gold-soft:#F6EBD2;
+  --pos:#15715A; --pos-soft:#DDF0E9;
+  --neg:#A33127; --neg-soft:#F8E3DF;
+  --info:#2F5497; --info-soft:#E3EAF9;
+  --night:#101B33;
+  --shadow-sm:0 1px 2px rgba(16,27,51,.07);
+  --shadow:0 2px 4px rgba(16,27,51,.05), 0 14px 32px -18px rgba(16,27,51,.35);
+  --r:14px; --r-sm:9px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B1220; --surface:#131E33; --surface-2:#18263F; --surface-3:#1E2E4C;
+    --ink:#E9EEF9; --ink-2:#BCC9E2; --muted:#8B9BBB;
+    --line:#26344F; --line-2:#35476B;
+    --gold:#E3AC44; --gold-ink:#F0C778; --gold-soft:#3A2D11;
+    --pos:#4FC79C; --pos-soft:#0F3A2D;
+    --neg:#F0897A; --neg-soft:#3E1C18;
+    --info:#8FB1F6; --info-soft:#18274A;
+    --night:#0A1121;
+    --shadow-sm:0 1px 2px rgba(0,0,0,.4);
+    --shadow:0 2px 6px rgba(0,0,0,.35), 0 18px 40px -22px rgba(0,0,0,.8);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B1220; --surface:#131E33; --surface-2:#18263F; --surface-3:#1E2E4C;
+  --ink:#E9EEF9; --ink-2:#BCC9E2; --muted:#8B9BBB;
+  --line:#26344F; --line-2:#35476B;
+  --gold:#E3AC44; --gold-ink:#F0C778; --gold-soft:#3A2D11;
+  --pos:#4FC79C; --pos-soft:#0F3A2D;
+  --neg:#F0897A; --neg-soft:#3E1C18;
+  --info:#8FB1F6; --info-soft:#18274A;
+  --night:#0A1121;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.4);
+  --shadow:0 2px 6px rgba(0,0,0,.35), 0 18px 40px -22px rgba(0,0,0,.8);
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:"IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  font-size:15px; line-height:1.5; -webkit-font-smoothing:antialiased;
+  font-variant-numeric: tabular-nums;
+}
+img{max-width:100%}
+h1,h2,h3,h4{font-family:Spectral, Georgia, "Times New Roman", serif; font-weight:600; margin:0; letter-spacing:-.01em}
+a{color:var(--info)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold); outline-offset:2px; border-radius:4px}
+@media (prefers-reduced-motion: reduce){*{animation-duration:.01ms !important; transition-duration:.01ms !important}}
+
+/* ---------- entrada / login ---------- */
+.gate{min-height:100dvh; display:grid; grid-template-columns:1.05fr .95fr; background:var(--bg)}
+@media (max-width:860px){.gate{grid-template-columns:1fr}}
+.gate-art{
+  background:
+    radial-gradient(120% 90% at 18% 8%, rgba(227,172,68,.20), transparent 55%),
+    radial-gradient(90% 70% at 90% 100%, rgba(47,84,151,.45), transparent 60%),
+    var(--night);
+  color:#F2F5FC; padding:48px 44px; display:flex; flex-direction:column; justify-content:space-between; min-height:260px;
+}
+@media (max-width:860px){.gate-art{padding:30px 22px}}
+.gate-art .mark{font-family:Spectral, Georgia, serif; font-size:15px; font-style:italic; color:#E3AC44}
+.gate-art h1{font-size:clamp(34px,5.4vw,58px); line-height:1.02; color:#fff; margin:26px 0 14px; font-weight:700}
+.gate-art h1 em{font-style:italic; font-weight:400}
+.gate-art p{color:#B9C6E2; max-width:44ch; margin:0}
+.gate-rule{width:74px; height:3px; background:#E3AC44; margin:22px 0}
+.gate-facts{display:flex; gap:26px; flex-wrap:wrap; margin-top:30px}
+.gate-facts div{min-width:96px}
+.gate-facts b{display:block; font-size:22px; font-family:Spectral,serif; color:#fff}
+.gate-facts span{font-size:12.5px; color:#93A5C6}
+.gate-form{display:flex; align-items:center; justify-content:center; padding:40px 26px}
+.gate-card{width:100%; max-width:390px}
+.gate-card h2{font-size:26px; margin-bottom:6px}
+.gate-card .sub{color:var(--muted); font-size:14px; margin-bottom:24px}
+.pick{display:grid; gap:12px; margin-top:22px}
+.pick a{
+  display:flex; gap:14px; align-items:center; text-decoration:none; color:var(--ink);
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:16px 18px; box-shadow:var(--shadow-sm);
+}
+.pick a:hover{border-color:var(--gold); box-shadow:var(--shadow)}
+.pick b{display:block; font-size:15.5px}
+.pick span{display:block; color:var(--muted); font-size:13px}
+.pick .ic{width:38px; height:38px; flex:none; border-radius:10px; display:grid; place-items:center; background:var(--gold-soft); color:var(--gold-ink); font-size:18px}
+
+/* ---------- formulários ---------- */
+label.f{display:block; margin-bottom:13px}
+label.f > span{display:block; font-size:12.5px; color:var(--ink-2); margin-bottom:5px; font-weight:500}
+.inp, input[type=text], input[type=password], input[type=number], input[type=date], input[type=email], select, textarea{
+  width:100%; background:var(--surface); border:1px solid var(--line-2); border-radius:var(--r-sm);
+  padding:10px 12px; font-size:14.5px; transition:border-color .15s, box-shadow .15s;
+}
+textarea{resize:vertical; min-height:74px; line-height:1.45}
+.inp:focus, input:focus, select:focus, textarea:focus{border-color:var(--gold); box-shadow:0 0 0 3px var(--gold-soft); outline:none}
+input[type=file]{padding:8px; background:var(--surface-2)}
+.hint{font-size:12.2px; color:var(--muted); margin-top:4px}
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:0 14px}
+.grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:0 14px}
+@media (max-width:640px){.grid2,.grid3{grid-template-columns:1fr}}
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px; cursor:pointer;
+  background:var(--night); color:#fff; border:1px solid transparent; border-radius:var(--r-sm);
+  padding:10px 17px; font-size:14.5px; font-weight:600; transition:transform .12s, filter .15s;
+}
+:root[data-theme="dark"] .btn, :root:not([data-theme="light"]) .btn{}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn{background:#2C4472}}
+:root[data-theme="dark"] .btn{background:#2C4472}
+.btn:hover{filter:brightness(1.12)}
+.btn:active{transform:translateY(1px)}
+.btn.gold{background:var(--gold); color:#1C1503}
+:root[data-theme="dark"] .btn.gold{color:#171102}
+.btn.ghost{background:transparent; color:var(--ink); border-color:var(--line-2)}
+.btn.ghost:hover{border-color:var(--gold); filter:none}
+.btn.sm{padding:6px 11px; font-size:13px; border-radius:8px}
+.btn.danger{background:var(--neg); color:#fff}
+.btn.full{width:100%}
+.btn[disabled]{opacity:.5; cursor:not-allowed}
+
+/* ---------- shell ---------- */
+.shell{min-height:100dvh; display:flex; flex-direction:column}
+.topbar{
+  position:sticky; top:0; z-index:40; background:var(--night); color:#EDF1F9;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.topbar-in{max-width:1280px; margin:0 auto; padding:11px 20px; display:flex; align-items:center; gap:14px}
+.brand{display:flex; align-items:baseline; gap:10px; min-width:0; flex:1 1 auto; overflow:hidden}
+.brand b{font-family:Spectral,serif; font-size:19px; font-weight:700; color:#fff; white-space:nowrap}
+.brand span{font-size:12.5px; color:#9FB0D0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.top-right{margin-left:auto; display:flex; align-items:center; gap:9px}
+.whoami{display:flex; align-items:center; gap:9px; background:rgba(255,255,255,.08); border-radius:99px; padding:4px 5px 4px 12px; font-size:13px}
+.whoami .dot{width:8px; height:8px; border-radius:99px; background:#E3AC44}
+.icon-btn{background:rgba(255,255,255,.08); border:0; color:#DCE5F5; width:32px; height:32px; border-radius:8px; cursor:pointer; display:grid; place-items:center; font-size:15px}
+.icon-btn:hover{background:rgba(255,255,255,.18)}
+.tabs{background:var(--surface); border-bottom:1px solid var(--line); position:sticky; top:53px; z-index:35}
+.tabs-in{max-width:1280px; margin:0 auto; padding:0 12px; display:flex; gap:2px; overflow-x:auto; scrollbar-width:thin}
+.tab{
+  border:0; background:none; cursor:pointer; padding:13px 14px; font-size:14px; font-weight:500; color:var(--muted);
+  border-bottom:2.5px solid transparent; white-space:nowrap;
+}
+.tab:hover{color:var(--ink)}
+.tab.on{color:var(--ink); border-bottom-color:var(--gold); font-weight:600}
+.tab .pill{background:var(--neg); color:#fff; border-radius:99px; font-size:11px; padding:1px 6px; margin-left:6px; font-weight:700}
+main{max-width:1280px; width:100%; margin:0 auto; padding:22px 20px 70px; flex:1}
+@media (max-width:640px){
+  .sec-title{flex-direction:column; gap:3px; align-items:flex-start}
+  main{padding:16px 13px 60px} .topbar-in{padding:10px 13px; gap:8px} .tabs{top:51px}
+  .brand b{font-size:16px} .brand span{display:none}
+  .syncbadge .sb-txt{display:none}
+  .whoami{padding:4px 4px 4px 10px; font-size:12.5px; max-width:150px}
+  .whoami .qn{overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:88px; display:inline-block}
+}
+.foot{max-width:1280px; margin:0 auto; padding:0 20px 30px; color:var(--muted); font-size:12.5px}
+
+/* ---------- blocos ---------- */
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--shadow-sm)}
+.card.pad{padding:18px}
+.card h3{font-size:16.5px; margin-bottom:2px}
+.card-head{display:flex; align-items:center; gap:12px; padding:15px 18px; border-bottom:1px solid var(--line)}
+.card-head h3{flex:1; min-width:0}
+.card-body{padding:16px 18px}
+.sec-title{display:flex; align-items:baseline; gap:12px; margin:26px 0 12px}
+.sec-title h2{font-size:20px}
+.sec-title p{margin:0; color:var(--muted); font-size:13.5px}
+.row{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+.spread{display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap}
+
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(196px,1fr)); gap:12px}
+.kpi{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:15px 16px; box-shadow:var(--shadow-sm)}
+.kpi .lab{font-size:12.5px; color:var(--muted); display:flex; align-items:center; gap:6px}
+.kpi .val{font-family:Spectral,serif; font-size:26px; font-weight:600; margin-top:5px; letter-spacing:-.02em}
+.kpi .cmp{font-size:12.5px; color:var(--ink-2); margin-top:3px}
+.kpi.accent{background:linear-gradient(180deg, var(--gold-soft), var(--surface) 78%); border-color:var(--gold)}
+.kpi.good .val{color:var(--pos)} .kpi.bad .val{color:var(--neg)}
+
+/* destaque de caixa (herói do painel de setor) */
+.caixa{
+  background:
+    radial-gradient(110% 130% at 100% 0%, rgba(227,172,68,.18), transparent 60%),
+    var(--night);
+  color:#fff; border-radius:var(--r); padding:26px 28px; box-shadow:var(--shadow); overflow:hidden;
+}
+.caixa{border:1px solid transparent}
+:root[data-theme="dark"] .caixa{border-color:var(--line-2)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .caixa{border-color:var(--line-2)}}
+.caixa .lab{color:#A9BAD9; font-size:13px}
+.caixa .big{font-family:Spectral,serif; font-size:clamp(38px,7vw,60px); line-height:1.05; font-weight:700; margin:4px 0 2px; letter-spacing:-.025em}
+.caixa .big.neg{color:#F0897A}
+.caixa .sub{color:#C3D0E8; font-size:13.5px}
+.meter{height:9px; border-radius:99px; background:rgba(255,255,255,.16); margin:18px 0 9px; overflow:hidden; display:flex}
+.meter i{display:block; height:100%}
+.meter i.a{background:#E3AC44} .meter i.b{background:rgba(227,172,68,.45)}
+.caixa .legend{display:flex; gap:18px; flex-wrap:wrap; font-size:12.5px; color:#B9C6E2}
+.caixa .legend b{color:#fff; font-weight:600}
+
+table{width:100%; border-collapse:collapse; font-size:14px}
+.tw{overflow-x:auto; -webkit-overflow-scrolling:touch}
+th{text-align:left; font-size:12.5px; color:var(--muted); font-weight:600; padding:9px 11px; border-bottom:1px solid var(--line); white-space:nowrap}
+td{padding:10px 11px; border-bottom:1px solid var(--line); vertical-align:middle}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:var(--surface-2)}
+.num{text-align:right; white-space:nowrap}
+td.num, th.num{text-align:right}
+.tfoot td{font-weight:600; background:var(--surface-2)}
+
+.tag{display:inline-flex; align-items:center; gap:5px; font-size:12px; font-weight:600; padding:3px 9px; border-radius:99px; white-space:nowrap}
+.tag.pend{background:var(--gold-soft); color:var(--gold-ink)}
+.tag.apr{background:var(--pos-soft); color:var(--pos)}
+.tag.rej{background:var(--neg-soft); color:var(--neg)}
+.tag.info{background:var(--info-soft); color:var(--info)}
+.tag.neutral{background:var(--surface-3); color:var(--ink-2)}
+.chip{display:inline-flex; align-items:center; gap:6px; font-size:12.5px; padding:4px 10px; border-radius:99px; background:var(--surface-3); color:var(--ink-2)}
+.swatch{width:9px; height:9px; border-radius:3px; flex:none}
+
+.bar{height:7px; background:var(--surface-3); border-radius:99px; overflow:hidden; min-width:70px}
+.bar i{display:block; height:100%; background:var(--info); border-radius:99px}
+.bar i.warn{background:var(--gold)} .bar i.over{background:var(--neg)} .bar i.ok{background:var(--pos)}
+
+.empty{text-align:center; padding:38px 18px; color:var(--muted)}
+.empty b{display:block; color:var(--ink); font-family:Spectral,serif; font-size:17px; margin-bottom:5px; font-weight:600}
+
+.alert{display:flex; gap:11px; padding:12px 14px; border-radius:var(--r-sm); font-size:13.5px; align-items:flex-start}
+.alert.warn{background:var(--gold-soft); color:var(--gold-ink)}
+.alert.bad{background:var(--neg-soft); color:var(--neg)}
+.alert.good{background:var(--pos-soft); color:var(--pos)}
+.alert.info{background:var(--info-soft); color:var(--info)}
+
+.sector-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(258px,1fr)); gap:12px}
+.sector{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:15px 16px; box-shadow:var(--shadow-sm); cursor:pointer}
+.sector:hover{border-color:var(--line-2)}
+.sector .nome{display:flex; align-items:center; gap:8px; font-weight:600; font-size:15px}
+.sector .saldo{font-family:Spectral,serif; font-size:23px; font-weight:600; margin:9px 0 2px}
+.sector .of{font-size:12.5px; color:var(--muted)}
+.sector .foot{display:flex; justify-content:space-between; font-size:12px; color:var(--muted); margin-top:9px}
+
+.lanc{border:1px solid var(--line); border-radius:var(--r); padding:14px 15px; background:var(--surface); margin-bottom:10px}
+.lanc .l1{display:flex; gap:10px; align-items:flex-start}
+.lanc .desc{font-weight:600; font-size:14.5px}
+.lanc .meta{color:var(--muted); font-size:12.5px; margin-top:2px}
+.lanc .vlr{margin-left:auto; text-align:right; font-family:Spectral,serif; font-size:19px; font-weight:600; white-space:nowrap}
+.lanc .just{margin-top:9px; padding:9px 11px; background:var(--surface-2); border-left:2.5px solid var(--line-2); border-radius:0 8px 8px 0; font-size:13.3px; color:var(--ink-2)}
+.lanc .acts{display:flex; gap:7px; flex-wrap:wrap; margin-top:11px}
+.anexos{display:flex; gap:7px; flex-wrap:wrap; margin-top:9px}
+.anexo{display:inline-flex; align-items:center; gap:6px; font-size:12.4px; padding:4px 9px; border:1px solid var(--line-2); border-radius:8px; text-decoration:none; color:var(--ink-2); background:var(--surface-2)}
+.anexo:hover{border-color:var(--gold)}
+
+.modal-bg{position:fixed; inset:0; background:rgba(9,15,28,.55); backdrop-filter:blur(2px); z-index:80; display:grid; place-items:center; padding:16px}
+.modal{background:var(--surface); border-radius:var(--r); width:100%; max-width:620px; max-height:88dvh; overflow:auto; box-shadow:var(--shadow); border:1px solid var(--line)}
+.modal .mh{display:flex; align-items:center; gap:12px; padding:16px 18px; border-bottom:1px solid var(--line); position:sticky; top:0; background:var(--surface)}
+.modal .mh h3{flex:1; font-size:17px}
+.modal .mb{padding:18px}
+.modal .mf{padding:14px 18px; border-top:1px solid var(--line); display:flex; gap:9px; justify-content:flex-end; position:sticky; bottom:0; background:var(--surface)}
+
+.toasts{position:fixed; right:16px; bottom:16px; z-index:99; display:flex; flex-direction:column; gap:8px; max-width:330px}
+.toast{background:var(--night); color:#fff; padding:11px 15px; border-radius:var(--r-sm); font-size:13.5px; box-shadow:var(--shadow); animation:tin .22s ease-out}
+.toast.bad{background:var(--neg)} .toast.good{background:var(--pos)}
+@keyframes tin{from{opacity:0; transform:translateY(8px)}to{opacity:1; transform:none}}
+
+.chart{width:100%; height:auto; display:block}
+.chart text{font-family:"IBM Plex Sans",sans-serif; fill:var(--muted); font-size:11px}
+.chart .lbl{fill:var(--ink-2); font-size:11.5px}
+.chart .val{fill:var(--ink); font-size:11.5px; font-weight:600}
+.legend-row{display:flex; gap:14px; flex-wrap:wrap; font-size:12.5px; color:var(--ink-2); margin-top:10px}
+.legend-row i{width:10px; height:10px; border-radius:3px; display:inline-block; margin-right:6px}
+
+.split{display:grid; grid-template-columns:1.35fr 1fr; gap:14px; align-items:start}
+@media (max-width:980px){.split{grid-template-columns:1fr}}
+.cols{display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:14px; align-items:start}
+.stack{display:grid; gap:14px}
+.mt{margin-top:14px} .mb{margin-bottom:14px}
+.muted{color:var(--muted)} .small{font-size:12.8px}
+.pos{color:var(--pos)} .negv{color:var(--neg)}
+.mono{font-variant-numeric:tabular-nums}
+.divider{height:1px; background:var(--line); margin:14px 0}
+.switch{display:inline-flex; background:var(--surface-3); border-radius:99px; padding:3px}
+.switch button{border:0; background:none; cursor:pointer; font-size:13px; padding:5px 13px; border-radius:99px; color:var(--muted); font-weight:500}
+.switch button.on{background:var(--surface); color:var(--ink); box-shadow:var(--shadow-sm); font-weight:600}
+.loading{display:grid; place-items:center; min-height:60dvh; color:var(--muted); gap:12px}
+.spin{width:26px; height:26px; border:2.5px solid var(--line-2); border-top-color:var(--gold); border-radius:99px; animation:sp .8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.syncbadge{font-size:11.5px; color:#9FB0D0; display:flex; align-items:center; gap:5px}
+.syncbadge i{width:7px; height:7px; border-radius:99px; background:#4FC79C; display:block}
+.syncbadge.off i{background:#E3AC44}
+</style>
+</head>
+<body>
+<div id="app"><div class="loading"><div class="spin"></div><span>Carregando o painel…</span></div></div>
+<div class="toasts" id="toasts"></div>
+
+<!-- ===================================================================
+     CONFIGURAÇÃO DO SUPABASE
+     Troque os dois valores abaixo pelos do seu projeto:
+     Supabase → Project Settings → API → Project URL e chave "anon public".
+     Enquanto estiverem em branco, a página funciona só neste navegador.
+     =================================================================== -->
+<script>
+window.SUPABASE_CONFIG = {
+  url: 'https://mbybjptneeuhuinsikwc.supabase.co/rest/v1/',      // ex.: 'https://abcdefgh.supabase.co'
+  anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ieWJqcHRuZWV1aHVpbnNpa3djIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk0OTcxOTYsImV4cCI6MjEwNTA3MzE5Nn0.ZBb8J4EZ-GztLwQEXoG4ITHFZ8qKHHO71wMd2wAkQJ8'   // ex.: 'eyJhbGciOiJIUzI1NiIsInR5cCI6...'
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+
+<script>
+/* ==========================================================================
+   Adorar-te 2027 — Plataforma de orçamento e financeiro
+   Uma única aplicação com duas frentes:
+     #/gestao  → painel gerencial (login: gerencial)
+     #/setor   → painel do setor  (login: nome do setor)
+   Os dados ficam no armazenamento compartilhado do artefato (capacidade db),
+   com queda para armazenamento local quando ele não está disponível.
+   ========================================================================== */
+
+/* ---------------------------------------------------------------- utilidades */
+const $  = (s, r) => (r || document).querySelector(s);
+const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+const BRL = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
+const BRL0 = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+const NUM = new Intl.NumberFormat('pt-BR');
+const money  = n => BRL.format(Number(n) || 0);
+const money0 = n => BRL0.format(Number(n) || 0);
+const int    = n => NUM.format(Math.round(Number(n) || 0));
+const pct    = (n, casas) => (Number(n) || 0).toLocaleString('pt-BR', { minimumFractionDigits: casas || 0, maximumFractionDigits: casas === undefined ? 1 : casas }) + '%';
+const clone  = o => JSON.parse(JSON.stringify(o));
+const uid    = p => (p || 'id') + '-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+const hoje   = () => new Date().toISOString().slice(0, 10);
+const esc    = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const norm   = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+function parseNum(v) {
+  if (typeof v === 'number') return v;
+  let s = String(v == null ? '' : v).trim().replace(/[R$\s]/g, '');
+  if (!s) return 0;
+  if (s.includes(',')) s = s.replace(/\./g, '').replace(',', '.');
+  const n = parseFloat(s);
+  return isFinite(n) ? n : 0;
+}
+function dataBR(iso) {
+  if (!iso) return '—';
+  const p = String(iso).slice(0, 10).split('-');
+  return p.length === 3 ? p[2] + '/' + p[1] + '/' + p[0] : iso;
+}
+function toast(msg, tipo) {
+  const el = document.createElement('div');
+  el.className = 'toast' + (tipo ? ' ' + tipo : '');
+  el.textContent = msg;
+  $('#toasts').appendChild(el);
+  setTimeout(() => { el.style.transition = 'opacity .3s'; el.style.opacity = '0'; setTimeout(() => el.remove(), 320); }, 3400);
+}
+
+/* ---------------------------------------------------------------- dados padrão */
+const CATEGORIAS = ['Materiais', 'Serviços', 'Locação', 'Equipamentos', 'Transporte', 'Alimentação', 'Impressos e mídia', 'Taxas', 'Outros'];
+const PAGAMENTOS = ['Pix', 'Dinheiro', 'Cartão do evento', 'Cartão próprio (reembolsar)', 'Boleto', 'Transferência'];
+const CORES = ['#2F5497', '#A8760F', '#15715A', '#7A3E9D', '#A33127', '#0E7490', '#B45309', '#4D6B1F', '#8A2E63', '#31558A', '#6B7280', '#9A3412'];
+
+const DEFAULT_CORE = {
+  versao: 1,
+  evento: { nome: 'Adorar-te 2027', data: '', local: '', senha: 'adorarte2027' },
+  parametros: { taxaAdm: 0.05, isentosSemLocal: 10, isentosComLocal: 7, reserva: 0 },
+  lotes: [
+    { id: 'promo', nome: 'Lote Promocional', preco: 605, meta: 50, vendidos: 50 },
+    { id: 'lote1', nome: '1º Lote', preco: 635, meta: 50, vendidos: 50 },
+    { id: 'lote2', nome: '2º Lote', preco: 655, meta: 200, vendidos: 200 }
+  ],
+  setores: [
+    { id: 'comunicacao', nome: 'Comunicação', login: 'comunicacao', tipo: 'fixo', valor: 12000, porInscrito: 0, percentual: 0, cor: '#2F5497', responsavel: '', contato: '', pix: '' },
+    { id: 'somevideo', nome: 'Som e Vídeo', login: 'som', tipo: 'fixo', valor: 9900, porInscrito: 0, percentual: 0, cor: '#7A3E9D', responsavel: '', contato: '', pix: '' },
+    { id: 'apoio', nome: 'Apoio', login: 'apoio', tipo: 'fixo', valor: 1950, porInscrito: 0, percentual: 0, cor: '#15715A', responsavel: '', contato: '', pix: '' },
+    { id: 'convidados', nome: 'Convidados e Preletores', login: 'convidados', tipo: 'fixo', valor: 900, porInscrito: 0, percentual: 0, cor: '#A8760F', responsavel: '', contato: '', pix: '' },
+    { id: 'logistica', nome: 'Logística', login: 'logistica', tipo: 'fixo', valor: 600, porInscrito: 0, percentual: 0, cor: '#0E7490', responsavel: '', contato: '', pix: '' },
+    { id: 'lazer', nome: 'Lazer', login: 'lazer', tipo: 'fixo', valor: 510, porInscrito: 0, percentual: 0, cor: '#4D6B1F', responsavel: '', contato: '', pix: '' },
+    { id: 'farmacia', nome: 'Farmácia', login: 'farmacia', tipo: 'fixo', valor: 150, porInscrito: 0, percentual: 0, cor: '#A33127', responsavel: '', contato: '', pix: '' },
+    { id: 'recepcao', nome: 'Recepção', login: 'recepcao', tipo: 'fixo', valor: 0, porInscrito: 0, percentual: 0, cor: '#8A2E63', responsavel: '', contato: '', pix: '' },
+    { id: 'seguranca', nome: 'Segurança', login: 'seguranca', tipo: 'fixo', valor: 0, porInscrito: 0, percentual: 0, cor: '#6B7280', responsavel: '', contato: '', pix: '' },
+    { id: 'local', nome: 'Local', login: 'local', tipo: 'porInscrito', valor: 0, porInscrito: 320, percentual: 0, cor: '#31558A', responsavel: '', contato: '', pix: '' },
+    { id: 'alimentacao', nome: 'Alimentação', login: 'alimentacao', tipo: 'porInscrito', valor: 0, porInscrito: 164.5, percentual: 0, cor: '#B45309', responsavel: '', contato: '', pix: '' }
+  ]
+};
+
+/* ---------------------------------------------------------------- armazenamento */
+const Store = {
+  db: null, sb: null, assets: null, downloads: null, erroNuvem: '',
+  modo: 'local',            // 'nuvem' | 'local'
+  pronto: false,
+  core: clone(DEFAULT_CORE),
+  lancamentos: [],
+  entradas: [],
+  ouvintes: new Set(),
+  filaCore: Promise.resolve(),
+
+  assina(fn) { this.ouvintes.add(fn); return () => this.ouvintes.delete(fn); },
+  emite() { this.ouvintes.forEach(fn => { try { fn(); } catch (e) { console.error(e); } }); },
+
+  async iniciar() {
+    const cfg = window.SUPABASE_CONFIG || {};
+    if (cfg.url && cfg.anonKey && window.supabase) {
+      try {
+        await this.iniciarSupabase(cfg);
+        this.modo = 'nuvem';
+        this.pronto = true;
+        this.emite();
+        return;
+      } catch (e) {
+        console.error('supabase', e);
+        this.erroNuvem = (e && e.message) || 'falha ao conectar no Supabase';
+      }
+    }
+    try {
+      if (window.claude && typeof window.claude.use === 'function') {
+        this.db = await window.claude.use('db');
+        window.claude.use('assets').then(a => { this.assets = a; }).catch(() => {});
+        window.claude.use('downloads').then(d => { this.downloads = d; }).catch(() => {});
+      }
+    } catch (e) { this.db = null; }
+
+    if (this.db) {
+      this.modo = 'nuvem';
+      await this.iniciarNuvem();
+    } else {
+      this.modo = 'local';
+      this.iniciarLocal();
+    }
+    this.pronto = true;
+    this.emite();
+  },
+
+  async iniciarSupabase(cfg) {
+    this.sb = window.supabase.createClient(cfg.url, cfg.anonKey, { auth: { persistSession: false } });
+    const [rc, rl, re] = await Promise.all([
+      this.sb.from('at_config').select('dados').eq('id', 'core').maybeSingle(),
+      this.sb.from('at_lancamentos').select('id,dados'),
+      this.sb.from('at_entradas').select('id,dados')
+    ]);
+    if (rc.error) throw rc.error;
+    if (rl.error) throw rl.error;
+    if (re.error) throw re.error;
+    if (rc.data && rc.data.dados) this.core = this.completaCore(rc.data.dados);
+    else await this.sb.from('at_config').upsert({ id: 'core', dados: clone(DEFAULT_CORE) });
+    this.lancamentos = (rl.data || []).map(r => Object.assign({ id: r.id }, r.dados));
+    this.entradas = (re.data || []).map(r => Object.assign({ id: r.id }, r.dados));
+
+    this.sb.channel('adorarte2027')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'at_config' }, p => {
+        if (p.new && p.new.dados) { this.core = this.completaCore(p.new.dados); this.emite(); }
+      })
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'at_lancamentos' }, p => this.aplicaLinha('lancamentos', p))
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'at_entradas' }, p => this.aplicaLinha('entradas', p))
+      .subscribe();
+
+    // rede de segurança: se o tempo real estiver desligado no projeto, recarrega sozinho
+    clearInterval(this._timer);
+    this._timer = setInterval(() => this.recarregaSupabase(), 30000);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) this.recarregaSupabase(); });
+  },
+
+  aplicaLinha(colecao, p) {
+    if (p.eventType === 'DELETE') {
+      const id = (p.old || {}).id;
+      this[colecao] = this[colecao].filter(x => x.id !== id);
+    } else if (p.new) {
+      const obj = Object.assign({ id: p.new.id }, p.new.dados);
+      const i = this[colecao].findIndex(x => x.id === obj.id);
+      if (i >= 0) this[colecao][i] = obj; else this[colecao].push(obj);
+    }
+    this.emite();
+  },
+
+  async recarregaSupabase() {
+    if (!this.sb) return;
+    try {
+      const [rc, rl, re] = await Promise.all([
+        this.sb.from('at_config').select('dados').eq('id', 'core').maybeSingle(),
+        this.sb.from('at_lancamentos').select('id,dados'),
+        this.sb.from('at_entradas').select('id,dados')
+      ]);
+      if (rc.data && rc.data.dados) this.core = this.completaCore(rc.data.dados);
+      if (rl.data) this.lancamentos = rl.data.map(r => Object.assign({ id: r.id }, r.dados));
+      if (re.data) this.entradas = re.data.map(r => Object.assign({ id: r.id }, r.dados));
+      this.emite();
+    } catch (e) { console.warn('recarga', e); }
+  },
+
+  completaCore(c) {
+    const base = clone(DEFAULT_CORE);
+    const core = Object.assign({}, base, c || {});
+    core.evento = Object.assign({}, base.evento, (c && c.evento) || {});
+    core.parametros = Object.assign({}, base.parametros, (c && c.parametros) || {});
+    if (!Array.isArray(core.lotes) || !core.lotes.length) core.lotes = base.lotes;
+    if (!Array.isArray(core.setores)) core.setores = base.setores;
+    core.setores = core.setores.map(s => Object.assign({ tipo: 'fixo', valor: 0, porInscrito: 0, percentual: 0, cor: '#2F5497', responsavel: '', contato: '', pix: '' }, s));
+    return core;
+  },
+
+  async iniciarNuvem() {
+    const ref = this.db.doc('config/core');
+    try {
+      const snap = await ref.get();
+      if (!snap.exists) await ref.set(clone(DEFAULT_CORE));
+      else this.core = this.completaCore(snap.data());
+    } catch (e) { console.warn('leitura inicial', e); }
+
+    ref.onSnapshot(s => {
+      if (s.exists) { this.core = this.completaCore(s.data()); this.emite(); }
+    }, e => console.warn('core', e));
+
+    this.db.collection('lancamentos').onSnapshot(s => {
+      this.lancamentos = s.docs.map(d => Object.assign({ id: d.id }, d.data()));
+      this.emite();
+    }, e => console.warn('lancamentos', e));
+
+    this.db.collection('entradas').onSnapshot(s => {
+      this.entradas = s.docs.map(d => Object.assign({ id: d.id }, d.data()));
+      this.emite();
+    }, e => console.warn('entradas', e));
+  },
+
+  iniciarLocal() {
+    const ler = (k, fb) => { try { const v = localStorage.getItem('at27:' + k); return v ? JSON.parse(v) : fb; } catch (e) { return fb; } };
+    this.core = this.completaCore(ler('core', null));
+    this.lancamentos = ler('lancamentos', []);
+    this.entradas = ler('entradas', []);
+    window.addEventListener('storage', ev => {
+      if (!ev.key || ev.key.indexOf('at27:') !== 0) return;
+      this.core = this.completaCore(ler('core', null));
+      this.lancamentos = ler('lancamentos', []);
+      this.entradas = ler('entradas', []);
+      this.emite();
+    });
+  },
+
+  salvaLocal() {
+    try {
+      localStorage.setItem('at27:core', JSON.stringify(this.core));
+      localStorage.setItem('at27:lancamentos', JSON.stringify(this.lancamentos));
+      localStorage.setItem('at27:entradas', JSON.stringify(this.entradas));
+    } catch (e) { toast('Não foi possível gravar neste navegador: espaço esgotado.', 'bad'); }
+  },
+
+  /* grava o documento de configuração — uma escrita por vez */
+  async salvaCore(mut) {
+    const next = typeof mut === 'function' ? (mut(clone(this.core)) || this.core) : mut;
+    next.atualizadoEm = new Date().toISOString();
+    this.core = this.completaCore(next);
+    this.emite();
+    if (this.sb) {
+      const corpo = clone(this.core);
+      this.filaCore = this.filaCore
+        .then(() => this.sb.from('at_config').upsert({ id: 'core', dados: corpo, atualizado_em: new Date().toISOString() }))
+        .then(r => { if (r && r.error) throw r.error; })
+        .catch(e => { console.error(e); toast('Falha ao salvar no Supabase: ' + (e.message || 'sem conexão'), 'bad'); });
+      return this.filaCore;
+    }
+    if (this.db) {
+      const corpo = clone(this.core);
+      this.filaCore = this.filaCore.then(() => this.db.doc('config/core').set(corpo)).catch(e => {
+        console.error(e); toast('Falha ao salvar no servidor. Tente novamente.', 'bad');
+      });
+      return this.filaCore;
+    }
+    this.salvaLocal();
+  },
+
+  async gravaLancamento(obj) {
+    const i = this.lancamentos.findIndex(l => l.id === obj.id);
+    if (i >= 0) this.lancamentos[i] = obj; else this.lancamentos.push(obj);
+    this.emite();
+    if (this.sb) {
+      const corpo = clone(obj); delete corpo.id;
+      const r = await this.sb.from('at_lancamentos').upsert({ id: obj.id, dados: corpo, atualizado_em: new Date().toISOString() });
+      if (r.error) { console.error(r.error); toast('Não foi possível salvar o lançamento.', 'bad'); }
+      return;
+    }
+    if (this.db) {
+      const corpo = clone(obj); delete corpo.id;
+      try { await this.db.collection('lancamentos').doc(obj.id).set(corpo); }
+      catch (e) { console.error(e); toast('Não foi possível salvar o lançamento.', 'bad'); }
+    } else this.salvaLocal();
+  },
+
+  async apagaLancamento(id) {
+    const l = this.lancamentos.find(x => x.id === id);
+    this.lancamentos = this.lancamentos.filter(x => x.id !== id);
+    this.emite();
+    if (this.sb) {
+      try {
+        await this.sb.from('at_lancamentos').delete().eq('id', id);
+        for (const a of (l && l.anexos) || []) {
+          if (a.path) await this.sb.storage.from('comprovantes').remove([a.path]);
+          else if (a.docId) await this.sb.from('at_anexos').delete().eq('id', a.docId);
+        }
+      } catch (e) { console.error(e); }
+      return;
+    }
+    if (this.db) {
+      try {
+        await this.db.collection('lancamentos').doc(id).delete();
+        for (const a of (l && l.anexos) || []) if (a.docId) { try { await this.db.collection('anexos').doc(a.docId).delete(); } catch (e) {} }
+      } catch (e) { console.error(e); }
+    } else { try { (l && l.anexos || []).forEach(a => a.docId && localStorage.removeItem('at27:anexo:' + a.docId)); } catch (e) {} this.salvaLocal(); }
+  },
+
+  async gravaEntrada(obj) {
+    const i = this.entradas.findIndex(l => l.id === obj.id);
+    if (i >= 0) this.entradas[i] = obj; else this.entradas.push(obj);
+    this.emite();
+    if (this.sb) {
+      const corpo = clone(obj); delete corpo.id;
+      const r = await this.sb.from('at_entradas').upsert({ id: obj.id, dados: corpo });
+      if (r.error) { console.error(r.error); toast('Não foi possível salvar a entrada.', 'bad'); }
+      return;
+    }
+    if (this.db) {
+      const corpo = clone(obj); delete corpo.id;
+      try { await this.db.collection('entradas').doc(obj.id).set(corpo); }
+      catch (e) { console.error(e); toast('Não foi possível salvar a entrada.', 'bad'); }
+    } else this.salvaLocal();
+  },
+
+  async apagaEntrada(id) {
+    this.entradas = this.entradas.filter(x => x.id !== id);
+    this.emite();
+    if (this.sb) { const r = await this.sb.from('at_entradas').delete().eq('id', id); if (r.error) console.error(r.error); return; }
+    if (this.db) { try { await this.db.collection('entradas').doc(id).delete(); } catch (e) { console.error(e); } }
+    else this.salvaLocal();
+  },
+
+  /* ---- anexos: usa o armazenamento de arquivos do artefato; se não houver,
+          compacta a imagem e guarda o conteúdo junto aos dados ---- */
+  async enviaAnexo(file) {
+    const meta = { id: uid('ax'), nome: file.name, tipo: file.type || 'arquivo', tamanho: file.size };
+    if (this.sb) {
+      try {
+        const limpo = String(file.name).normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^\w.\-]+/g, '_');
+        const caminho = meta.id + '-' + limpo;
+        const envio = /^image\//.test(file.type) ? await dataUrlParaBlob(await comprimeImagem(file, 1800, .82)) : file;
+        const r = await this.sb.storage.from('comprovantes').upload(caminho, envio, { upsert: true, contentType: envio.type || file.type });
+        if (r.error) throw r.error;
+        const pub = this.sb.storage.from('comprovantes').getPublicUrl(caminho);
+        meta.url = pub.data.publicUrl; meta.path = caminho;
+        return meta;
+      } catch (e) {
+        console.warn('storage', e);
+        const dataUrl = /^image\//.test(file.type) ? await comprimeImagem(file, 1400, .7) : await lerComoDataURL(file);
+        if (Math.ceil(dataUrl.length * 0.75) > 400 * 1024) throw new Error('Arquivo grande demais. Tire uma foto do comprovante ou reduza o PDF.');
+        meta.docId = meta.id; meta.inline = true;
+        const g = await this.sb.from('at_anexos').upsert({ id: meta.docId, nome: meta.nome, tipo: meta.tipo, dados: dataUrl });
+        if (g.error) throw new Error('Não consegui guardar o anexo: ' + g.error.message);
+        return meta;
+      }
+    }
+    if (this.assets) {
+      try {
+        const r = await this.assets.upload(file);
+        meta.url = r.url; meta.assetId = r.id;
+        return meta;
+      } catch (e) { console.warn('assets', e); }
+    }
+    const ehImagem = /^image\//.test(file.type);
+    let dataUrl;
+    if (ehImagem) dataUrl = await comprimeImagem(file, 1500, .72);
+    else dataUrl = await lerComoDataURL(file);
+    const bytes = Math.ceil(dataUrl.length * 0.75);
+    if (bytes > 200 * 1024) {
+      if (ehImagem) dataUrl = await comprimeImagem(file, 1000, .55);
+      if (Math.ceil(dataUrl.length * 0.75) > 200 * 1024)
+        throw new Error('Arquivo grande demais (' + Math.round(file.size / 1024) + ' KB). Envie uma foto do comprovante ou um PDF de até 150 KB.');
+    }
+    meta.docId = meta.id;
+    meta.inline = true;
+    if (this.db) await this.db.collection('anexos').doc(meta.docId).set({ nome: meta.nome, tipo: meta.tipo, data: dataUrl });
+    else { try { localStorage.setItem('at27:anexo:' + meta.docId, dataUrl); } catch (e) { throw new Error('Sem espaço para guardar o anexo neste navegador.'); } }
+    return meta;
+  },
+
+  async leAnexo(meta) {
+    if (meta.url) return meta.url;
+    if (this.sb && meta.docId) {
+      const r = await this.sb.from('at_anexos').select('dados').eq('id', meta.docId).maybeSingle();
+      return r.data ? r.data.dados : null;
+    }
+    if (this.db && meta.docId) {
+      const s = await this.db.collection('anexos').doc(meta.docId).get();
+      return s.exists ? s.data().data : null;
+    }
+    if (meta.docId) return localStorage.getItem('at27:anexo:' + meta.docId);
+    return null;
+  },
+
+  async baixar(nomeArquivo, conteudo, mime) {
+    if (this.downloads) {
+      try { await this.downloads.save({ filename: nomeArquivo, data: conteudo }); return true; }
+      catch (e) { console.warn(e); }
+    }
+    try {
+      const blob = new Blob([conteudo], { type: mime || 'text/csv;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob); a.download = nomeArquivo; a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+      return true;
+    } catch (e) { toast('Não foi possível gerar o arquivo aqui.', 'bad'); return false; }
+  }
+};
+
+async function dataUrlParaBlob(dataUrl) {
+  const r = await fetch(dataUrl);
+  return await r.blob();
+}
+function lerComoDataURL(file) {
+  return new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = () => res(r.result);
+    r.onerror = () => rej(new Error('Falha ao ler o arquivo.'));
+    r.readAsDataURL(file);
+  });
+}
+async function comprimeImagem(file, maxLado, q) {
+  const url = await lerComoDataURL(file);
+  return await new Promise(res => {
+    const img = new Image();
+    img.onload = () => {
+      const esc2 = Math.min(1, maxLado / Math.max(img.width, img.height));
+      const c = document.createElement('canvas');
+      c.width = Math.round(img.width * esc2); c.height = Math.round(img.height * esc2);
+      const ctx = c.getContext('2d');
+      ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, c.width, c.height);
+      ctx.drawImage(img, 0, 0, c.width, c.height);
+      res(c.toDataURL('image/jpeg', q));
+    };
+    img.onerror = () => res(url);
+    img.src = url;
+  });
+}
+
+/* ---------------------------------------------------------------- motor de cálculo */
+const soma = (arr, f) => arr.reduce((a, b) => a + (Number(f ? f(b) : b) || 0), 0);
+
+function calcular() {
+  const core = Store.core, p = core.parametros || {};
+  const lotes = (core.lotes || []).map(l => ({
+    id: l.id, nome: l.nome, preco: Number(l.preco) || 0, meta: Number(l.meta) || 0,
+    vendidos: Number(l.vendidos) || 0, receita: (Number(l.vendidos) || 0) * (Number(l.preco) || 0)
+  }));
+  const inscritos = soma(lotes, l => l.vendidos);
+  const metaInscritos = soma(lotes, l => l.meta);
+  const receitaIngressos = soma(lotes, l => l.receita);
+
+  const entradasConfirmadas = Store.entradas.filter(e => e.status !== 'previsto');
+  const entradasTotal = soma(entradasConfirmadas, e => e.valor);
+  const entradasPrevistas = soma(Store.entradas.filter(e => e.status === 'previsto'), e => e.valor);
+  const aportePorSetor = {};
+  entradasConfirmadas.forEach(e => { if (e.setor && e.setor !== 'geral') aportePorSetor[e.setor] = (aportePorSetor[e.setor] || 0) + (Number(e.valor) || 0); });
+
+  const receitaTotal = receitaIngressos + entradasTotal;
+  const taxaAdm = Number(p.taxaAdm) || 0;
+  const taxa = receitaIngressos * taxaAdm;
+
+  const sLocal = (core.setores || []).find(s => s.id === 'local');
+  const sAlim = (core.setores || []).find(s => s.id === 'alimentacao');
+  const localPP = sLocal ? Number(sLocal.porInscrito) || 0 : 0;
+  const alimPP = sAlim ? Number(sAlim.porInscrito) || 0 : 0;
+  const isentosSemLocal = Number(p.isentosSemLocal) || 0;
+  const isentosComLocal = Number(p.isentosComLocal) || 0;
+  const custoIsencoes = isentosSemLocal * alimPP + isentosComLocal * (localPP + alimPP);
+  const reserva = Number(p.reserva) || 0;
+
+  const setores = (core.setores || []).map(s => {
+    const base = s.tipo === 'percentual' ? (Number(s.percentual) || 0) / 100 * receitaTotal
+      : s.tipo === 'porInscrito' ? (Number(s.porInscrito) || 0) * inscritos
+        : (Number(s.valor) || 0);
+    const aporte = aportePorSetor[s.id] || 0;
+    const orcamento = base + aporte;
+    const lanc = Store.lancamentos.filter(l => l.setor === s.id);
+    const aprovado = soma(lanc.filter(l => l.status === 'aprovado'), l => l.valor);
+    const pendente = soma(lanc.filter(l => l.status === 'pendente'), l => l.valor);
+    const rejeitado = soma(lanc.filter(l => l.status === 'rejeitado'), l => l.valor);
+    const comprometido = aprovado + pendente;
+    const saldo = orcamento - comprometido;
+    const consumo = orcamento > 0 ? comprometido / orcamento * 100 : (comprometido > 0 ? 100 : 0);
+    const reembolsos = lanc.filter(l => l.reembolso && l.reembolso.necessita && !l.reembolso.pago && l.status !== 'rejeitado');
+    return Object.assign({}, s, {
+      base, aporte, orcamento, aprovado, pendente, rejeitado, comprometido, saldo, consumo,
+      lancamentos: lanc, qtd: lanc.length,
+      aReembolsar: soma(reembolsos, l => l.valor), qtdReembolsos: reembolsos.length,
+      pendentesQtd: lanc.filter(l => l.status === 'pendente').length
+    });
+  });
+
+  const orcamentoSetores = soma(setores, s => s.orcamento);
+  const gastoAprovado = soma(setores, s => s.aprovado);
+  const gastoPendente = soma(setores, s => s.pendente);
+  const custoProjetado = orcamentoSetores + custoIsencoes + taxa + reserva;
+  const resultadoProjetado = receitaTotal - custoProjetado;
+  const custoRealizado = gastoAprovado + taxa + custoIsencoes;
+  const resultadoAtual = receitaTotal - custoRealizado;
+  const saldoGeral = soma(setores, s => s.saldo);
+  const precoEquilibrio = inscritos > 0 && taxaAdm < 1
+    ? (custoProjetado - taxa - entradasTotal) / (inscritos * (1 - taxaAdm)) : 0;
+  const aReembolsar = soma(setores, s => s.aReembolsar);
+  const pendentesQtd = soma(setores, s => s.pendentesQtd);
+
+  return {
+    lotes, inscritos, metaInscritos, receitaIngressos, receitaTotal, entradasTotal, entradasPrevistas,
+    taxa, taxaAdm, custoIsencoes, isentosSemLocal, isentosComLocal, localPP, alimPP, reserva,
+    setores, orcamentoSetores, gastoAprovado, gastoPendente, custoProjetado, custoRealizado,
+    resultadoProjetado, resultadoAtual, saldoGeral, precoEquilibrio, aReembolsar, pendentesQtd,
+    margemPorPagante: inscritos > 0 ? resultadoProjetado / inscritos : 0
+  };
+}
+const setorPorId = id => (Store.core.setores || []).find(s => s.id === id);
+const nomeSetor = id => { const s = setorPorId(id); return s ? s.nome : (id || '—'); };
+
+/* ---------------------------------------------------------------- gráficos (SVG) */
+function barrasVerticais(itens, opts) {
+  opts = opts || {};
+  const W = 640, H = 230, padL = 12, padR = 12, base = H - 34, topo = 24;
+  const max = Math.max(1, ...itens.map(i => Math.max(i.valor, i.alvo || 0)));
+  const n = Math.max(itens.length, 1);
+  const larg = (W - padL - padR) / n;
+  const bw = Math.min(78, larg * 0.5);
+  let s = '<svg class="chart" viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMid meet" role="img">';
+  [0, .5, 1].forEach(f => { const y = base - (base - topo) * f; s += '<line x1="' + padL + '" x2="' + (W - padR) + '" y1="' + y + '" y2="' + y + '" stroke="var(--line)" stroke-width="1"/>'; });
+  itens.forEach((it, i) => {
+    const cx = padL + larg * i + larg / 2;
+    const h = (base - topo) * (it.valor / max);
+    const y = base - h;
+    if (it.alvo) {
+      const ha = (base - topo) * (it.alvo / max);
+      s += '<rect x="' + (cx - bw / 2 - 5) + '" y="' + (base - ha) + '" width="' + (bw + 10) + '" height="' + ha + '" fill="var(--surface-3)" rx="5"/>';
+    }
+    s += '<rect x="' + (cx - bw / 2) + '" y="' + y + '" width="' + bw + '" height="' + Math.max(h, 1.5) + '" rx="5" fill="' + (it.cor || 'var(--info)') + '"/>';
+    s += '<text class="val" x="' + cx + '" y="' + (y - 7) + '" text-anchor="middle">' + esc(it.rotuloValor || money0(it.valor)) + '</text>';
+    s += '<text class="lbl" x="' + cx + '" y="' + (base + 16) + '" text-anchor="middle">' + esc(it.nome) + '</text>';
+    if (it.sub) s += '<text x="' + cx + '" y="' + (base + 29) + '" text-anchor="middle">' + esc(it.sub) + '</text>';
+  });
+  return s + '</svg>';
+}
+
+function barrasHorizontais(itens) {
+  const W = 640, linha = 34, H = Math.max(80, itens.length * linha + 16);
+  const rotulo = 148, padR = 96;
+  const max = Math.max(1, ...itens.map(i => Math.max(i.orcamento, i.gasto)));
+  let s = '<svg class="chart" viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMid meet" role="img">';
+  itens.forEach((it, i) => {
+    const y = 8 + i * linha, trilho = W - rotulo - padR;
+    const wo = trilho * (it.orcamento / max), wg = trilho * (it.gasto / max);
+    const estouro = it.gasto > it.orcamento;
+    s += '<text class="lbl" x="' + (rotulo - 10) + '" y="' + (y + 15) + '" text-anchor="end">' + esc(it.nome.length > 19 ? it.nome.slice(0, 18) + '…' : it.nome) + '</text>';
+    s += '<rect x="' + rotulo + '" y="' + (y + 3) + '" width="' + Math.max(wo, 2) + '" height="18" rx="5" fill="var(--surface-3)"/>';
+    s += '<rect x="' + rotulo + '" y="' + (y + 3) + '" width="' + Math.max(wg, 2) + '" height="18" rx="5" fill="' + (estouro ? 'var(--neg)' : (it.cor || 'var(--info)')) + '"/>';
+    s += '<text class="val" x="' + (W - padR + 8) + '" y="' + (y + 16) + '">' + money0(it.gasto) + '</text>';
+    s += '<text x="' + (W - padR + 8) + '" y="' + (y + 27) + '" font-size="10">de ' + money0(it.orcamento) + '</text>';
+  });
+  return s + '</svg>';
+}
+
+function donut(itens, centroTitulo, centroValor) {
+  const total = soma(itens, i => i.valor) || 1;
+  const S = 210, r = 78, ri = 52, cx = S / 2, cy = S / 2;
+  let ang = -Math.PI / 2, s = '<svg class="chart" viewBox="0 0 ' + S + ' ' + S + '" style="max-width:250px;margin:0 auto" role="img">';
+  itens.forEach(it => {
+    const frac = (Number(it.valor) || 0) / total;
+    if (frac <= 0) return;
+    const a2 = ang + frac * Math.PI * 2, grande = frac > .5 ? 1 : 0;
+    const x1 = cx + r * Math.cos(ang), y1 = cy + r * Math.sin(ang), x2 = cx + r * Math.cos(a2), y2 = cy + r * Math.sin(a2);
+    const x3 = cx + ri * Math.cos(a2), y3 = cy + ri * Math.sin(a2), x4 = cx + ri * Math.cos(ang), y4 = cy + ri * Math.sin(ang);
+    s += '<path d="M' + x1 + ' ' + y1 + ' A' + r + ' ' + r + ' 0 ' + grande + ' 1 ' + x2 + ' ' + y2 + ' L' + x3 + ' ' + y3 + ' A' + ri + ' ' + ri + ' 0 ' + grande + ' 0 ' + x4 + ' ' + y4 + ' Z" fill="' + it.cor + '" stroke="var(--surface)" stroke-width="1.5"/>';
+    ang = a2;
+  });
+  s += '<text x="' + cx + '" y="' + (cy - 2) + '" text-anchor="middle" font-size="16" font-weight="600" fill="var(--ink)">' + esc(centroValor) + '</text>';
+  s += '<text x="' + cx + '" y="' + (cy + 15) + '" text-anchor="middle" font-size="11">' + esc(centroTitulo) + '</text>';
+  return s + '</svg>';
+}
+
+function linhaEvolucao(pontos) {
+  const W = 640, H = 200, padL = 46, padR = 14, base = H - 28, topo = 16;
+  if (pontos.length < 2) return '<div class="empty small">Os gastos aparecem aqui assim que houver lançamentos em datas diferentes.</div>';
+  const max = Math.max(1, ...pontos.map(p => p.y));
+  const x = i => padL + (W - padL - padR) * (i / (pontos.length - 1));
+  const y = v => base - (base - topo) * (v / max);
+  let d = '', area = '';
+  pontos.forEach((p, i) => { d += (i ? 'L' : 'M') + x(i).toFixed(1) + ' ' + y(p.y).toFixed(1) + ' '; });
+  area = d + 'L' + x(pontos.length - 1).toFixed(1) + ' ' + base + ' L' + padL + ' ' + base + ' Z';
+  let s = '<svg class="chart" viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMid meet" role="img">';
+  [0, .5, 1].forEach(f => {
+    const yy = base - (base - topo) * f;
+    s += '<line x1="' + padL + '" x2="' + (W - padR) + '" y1="' + yy + '" y2="' + yy + '" stroke="var(--line)"/>';
+    s += '<text x="' + (padL - 8) + '" y="' + (yy + 4) + '" text-anchor="end">' + money0(max * f) + '</text>';
+  });
+  s += '<path d="' + area + '" fill="var(--gold-soft)" opacity=".75"/>';
+  s += '<path d="' + d + '" fill="none" stroke="var(--gold)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>';
+  pontos.forEach((p, i) => { if (i === 0 || i === pontos.length - 1 || pontos.length < 14) s += '<circle cx="' + x(i) + '" cy="' + y(p.y) + '" r="3" fill="var(--gold)"/>'; });
+  s += '<text class="lbl" x="' + padL + '" y="' + (base + 18) + '">' + dataBR(pontos[0].x) + '</text>';
+  s += '<text class="lbl" x="' + (W - padR) + '" y="' + (base + 18) + '" text-anchor="end">' + dataBR(pontos[pontos.length - 1].x) + '</text>';
+  return s + '</svg>';
+}
+
+function medidor(consumo) {
+  const c = Math.max(0, Math.min(100, consumo));
+  const cls = c > 100 ? 'over' : c > 85 ? 'warn' : c > 60 ? '' : 'ok';
+  return '<div class="bar"><i class="' + cls + '" style="width:' + Math.min(100, c) + '%"></i></div>';
+}
+
+/* ---------------------------------------------------------------- componentes */
+function abreModal(titulo, corpoHTML, rodapeHTML, aoMontar) {
+  const bg = document.createElement('div');
+  bg.className = 'modal-bg';
+  bg.innerHTML = '<div class="modal" role="dialog" aria-modal="true"><div class="mh"><h3>' + esc(titulo) + '</h3>' +
+    '<button class="icon-btn" data-x style="background:var(--surface-3);color:var(--ink)" aria-label="Fechar">✕</button></div>' +
+    '<div class="mb">' + corpoHTML + '</div>' + (rodapeHTML ? '<div class="mf">' + rodapeHTML + '</div>' : '') + '</div>';
+  document.body.appendChild(bg);
+  const fechar = () => bg.remove();
+  bg.addEventListener('click', e => { if (e.target === bg) fechar(); });
+  $('[data-x]', bg).addEventListener('click', fechar);
+  document.addEventListener('keydown', function esc2(e) { if (e.key === 'Escape') { fechar(); document.removeEventListener('keydown', esc2); } });
+  if (aoMontar) aoMontar(bg, fechar);
+  return { el: bg, fechar };
+}
+
+function confirmar(titulo, texto, rotuloOk) {
+  return new Promise(res => {
+    abreModal(titulo, '<p style="margin:0">' + esc(texto) + '</p>',
+      '<button class="btn ghost" data-no>Cancelar</button><button class="btn danger" data-ok>' + esc(rotuloOk || 'Confirmar') + '</button>',
+      (bg, fechar) => {
+        $('[data-no]', bg).addEventListener('click', () => { fechar(); res(false); });
+        $('[data-ok]', bg).addEventListener('click', () => { fechar(); res(true); });
+      });
+  });
+}
+
+function tagStatus(st) {
+  if (st === 'aprovado') return '<span class="tag apr">Aprovado</span>';
+  if (st === 'rejeitado') return '<span class="tag rej">Recusado</span>';
+  return '<span class="tag pend">Aguardando</span>';
+}
+
+function trocaTema() {
+  const atual = document.documentElement.getAttribute('data-theme');
+  const escuro = atual ? atual === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.setAttribute('data-theme', escuro ? 'light' : 'dark');
+  try { localStorage.setItem('at27:tema', escuro ? 'light' : 'dark'); } catch (e) {}
+}
+
+/* ---------------------------------------------------------------- aplicação / rotas */
+const App = {
+  rota: 'portal',        // 'portal' | 'gestao' | 'setor'
+  sessao: null,
+  aba: null,
+  pendente: false,
+  filtros: { setor: 'todos', status: 'todos', busca: '' },
+
+  chaveSessao() { return 'at27:sessao:' + this.rota; },
+  leSessao() {
+    try { const v = localStorage.getItem(this.chaveSessao()); return v ? JSON.parse(v) : null; } catch (e) { return null; }
+  },
+  gravaSessao(s) { try { localStorage.setItem(this.chaveSessao(), JSON.stringify(s)); } catch (e) {} },
+  sair() {
+    try { localStorage.removeItem(this.chaveSessao()); } catch (e) {}
+    this.sessao = null; this.aba = null; this.render();
+  },
+
+  lerRota() {
+    const h = (location.hash || '').replace(/^#\/?/, '').toLowerCase();
+    this.rota = h.indexOf('gestao') === 0 ? 'gestao' : h.indexOf('setor') === 0 ? 'setor' : 'portal';
+    this.sessao = this.rota === 'portal' ? null : this.leSessao();
+    if (this.sessao && this.rota === 'setor' && !setorPorId(this.sessao.setorId)) this.sessao = null;
+    this.aba = null;
+  },
+
+  render() {
+    const raiz = $('#app');
+    if (!Store.pronto) return;
+    if (this.rota === 'portal') return void (raiz.innerHTML = telaPortal(), ligaPortal());
+    if (this.sessao && this.rota === 'setor' && !setorPorId(this.sessao.setorId)) {
+      try { localStorage.removeItem(this.chaveSessao()); } catch (e) {}
+      this.sessao = null;
+    }
+    if (!this.sessao) return void (raiz.innerHTML = telaLogin(this.rota), ligaLogin());
+    raiz.innerHTML = this.rota === 'gestao' ? telaGestao() : telaSetor();
+    this.rota === 'gestao' ? ligaGestao() : ligaSetor();
+  }
+};
+
+function agendaRender() {
+  const ae = document.activeElement;
+  if (ae && /^(INPUT|TEXTAREA|SELECT)$/.test(ae.tagName)) { App.pendente = true; return; }
+  App.pendente = false;
+  App.render();
+}
+document.addEventListener('focusout', () => {
+  setTimeout(() => {
+    const ae = document.activeElement;
+    if (App.pendente && !(ae && /^(INPUT|TEXTAREA|SELECT)$/.test(ae.tagName))) agendaRender();
+  }, 120);
+});
+
+/* ---------------------------------------------------------------- portal e login */
+function artLateral(sub) {
+  const c = calcular();
+  const ev = Store.core.evento || {};
+  return '<div class="gate-art">' +
+    '<div><div class="mark">Retiro de adoração</div>' +
+    '<h1>Adorar-te<br><em>2027</em></h1>' +
+    '<div class="gate-rule"></div>' +
+    '<p>' + esc(sub) + '</p></div>' +
+    '<div class="gate-facts">' +
+    '<div><b>' + int(c.inscritos) + '</b><span>inscritos lançados</span></div>' +
+    '<div><b>' + money0(c.receitaTotal) + '</b><span>receita apurada</span></div>' +
+    '<div><b>' + (Store.core.setores || []).length + '</b><span>setores</span></div>' +
+    (ev.data ? '<div><b>' + dataBR(ev.data) + '</b><span>data do retiro</span></div>' : '') +
+    '</div></div>';
+}
+
+function avisoConexao() {
+  if (Store.modo === 'nuvem') return '';
+  const cfg = window.SUPABASE_CONFIG || {};
+  if (Store.erroNuvem) return '<div class="alert bad mb"><span>▲</span><div><b>Sem conexão com o banco.</b> ' + esc(Store.erroNuvem) + '. O que você lançar agora fica só neste navegador.</div></div>';
+  if (!cfg.url || !cfg.anonKey) return '<div class="alert warn mb"><span>●</span><div><b>Banco de dados ainda não configurado.</b> Preencha a URL e a chave do Supabase no início do arquivo index.html. Até lá, cada navegador guarda seus próprios dados.</div></div>';
+  return '';
+}
+
+function telaPortal() {
+  return '<div class="gate">' + artLateral('Uma base única de orçamento: a coordenação lança inscritos e verbas, cada setor acompanha o próprio caixa e presta contas na hora.') +
+    '<div class="gate-form"><div class="gate-card">' +
+    '<h2>Por onde você entra?</h2>' +
+    '<div class="sub">Escolha o painel. Cada um pede login e senha.</div>' + avisoConexao() +
+    '<div class="pick">' +
+    '<a href="#/gestao"><span class="ic">◆</span><span><b>Coordenação geral</b><span>Orçamento, lotes, aprovações e visão consolidada</span></span></a>' +
+    '<a href="#/setor"><span class="ic">▲</span><span><b>Líder de setor</b><span>Saldo em caixa, lançamento de gastos e comprovantes</span></span></a>' +
+    '</div>' +
+    '<p class="hint" style="margin-top:22px">Guarde o endereço com <b>#/setor</b> para enviar aos líderes e o endereço com <b>#/gestao</b> para a coordenação.</p>' +
+    '</div></div></div>';
+}
+function ligaPortal() {}
+
+function telaLogin(rota) {
+  const gestor = rota === 'gestao';
+  const sub = gestor
+    ? 'Painel de comando do evento: inscritos por lote, orçamento por setor, entradas, aprovações e resultado projetado.'
+    : 'Seu setor, seu caixa. Veja quanto ainda pode gastar, lance despesas com comprovante e informe seus dados para ressarcimento.';
+  return '<div class="gate">' + artLateral(sub) +
+    '<div class="gate-form"><div class="gate-card">' +
+    '<h2>' + (gestor ? 'Acesso da coordenação' : 'Acesso do setor') + '</h2>' +
+    '<div class="sub">' + (gestor ? 'Use o login <b>gerencial</b>.' : 'Seu login é o nome do seu setor — por exemplo, <b>comunicação</b>.') + '</div>' + avisoConexao() +
+    '<form id="fLogin" autocomplete="off">' +
+    '<label class="f"><span>Login</span><input type="text" id="lg" placeholder="' + (gestor ? 'gerencial' : 'comunicação') + '" autocapitalize="none" required></label>' +
+    '<label class="f"><span>Senha</span><input type="password" id="sn" placeholder="••••••••" required></label>' +
+    '<div id="erro" style="display:none" class="alert bad mb"></div>' +
+    '<button class="btn gold full" type="submit">Entrar</button>' +
+    '</form>' +
+    (gestor ? '' : '<p class="hint" style="margin-top:18px">Setores disponíveis: ' + (Store.core.setores || []).map(s => esc(s.login || s.id)).join(', ') + '.</p>') +
+    '<p class="hint" style="margin-top:14px"><a href="#/">Trocar de painel</a></p>' +
+    '</div></div></div>';
+}
+
+function autentica(rota, login, senha) {
+  const core = Store.core;
+  if (norm(senha) !== norm((core.evento && core.evento.senha) || 'adorarte2027')) return { erro: 'Senha incorreta.' };
+  if (rota === 'gestao') {
+    if (['gerencial', 'gestao', 'gestor', 'admin', 'coordenacao', 'geral'].indexOf(norm(login)) >= 0) return { ok: { papel: 'gestor' } };
+    return { erro: 'Para o painel da coordenação o login é "gerencial".' };
+  }
+  const s = (core.setores || []).find(x => norm(x.login) === norm(login) || norm(x.nome) === norm(login) || norm(x.id) === norm(login));
+  if (!s) return { erro: 'Não encontrei esse setor. Confira com a coordenação.' };
+  return { ok: { papel: 'setor', setorId: s.id } };
+}
+
+function ligaLogin() {
+  const f = $('#fLogin');
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    const r = autentica(App.rota, $('#lg').value, $('#sn').value);
+    if (r.erro) { const el = $('#erro'); el.style.display = 'flex'; el.textContent = r.erro; return; }
+    App.sessao = r.ok; App.gravaSessao(r.ok); App.aba = null; App.render();
+  });
+}
+
+/* ---------------------------------------------------------------- casca comum */
+function casca(titulo, sub, abas, abaAtiva, conteudo, extraTopo) {
+  return '<div class="shell">' +
+    '<header class="topbar"><div class="topbar-in">' +
+    '<div class="brand"><b>' + esc(Store.core.evento.nome || 'Adorar-te 2027') + '</b><span>' + esc(sub) + '</span></div>' +
+    '<div class="top-right">' +
+    '<span class="syncbadge' + (Store.modo === 'nuvem' ? '' : ' off') + '" title="' + (Store.modo === 'nuvem' ? 'Sincronizado com todos os painéis' : 'Dados apenas neste navegador') + '"><i></i><span class="sb-txt">' + (Store.modo === 'nuvem' ? 'ao vivo' : 'local') + '</span></span>' +
+    (extraTopo || '') +
+    '<span class="whoami"><span class="dot"></span><span class="qn">' + esc(titulo) + '</span><button class="icon-btn" data-sair title="Sair">⏻</button></span>' +
+    '<button class="icon-btn" data-tema title="Claro / escuro">◐</button>' +
+    '</div></div></header>' +
+    '<nav class="tabs"><div class="tabs-in">' +
+    abas.map(a => '<button class="tab' + (a.id === abaAtiva ? ' on' : '') + '" data-aba="' + a.id + '">' + esc(a.nome) + (a.badge ? '<span class="pill">' + a.badge + '</span>' : '') + '</button>').join('') +
+    '</div></nav>' +
+    '<main>' + conteudo + '</main>' +
+    '<div class="foot">Adorar-te 2027 · dados atualizados ' + (Store.core.atualizadoEm ? 'em ' + new Date(Store.core.atualizadoEm).toLocaleString('pt-BR') : 'agora') + '</div>' +
+    '</div>';
+}
+
+function ligaCasca() {
+  $$('[data-aba]').forEach(b => b.addEventListener('click', () => { App.aba = b.dataset.aba; App.render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }));
+  const s = $('[data-sair]'); if (s) s.addEventListener('click', () => App.sair());
+  const t = $('[data-tema]'); if (t) t.addEventListener('click', trocaTema);
+}
+
+/* ---------------------------------------------------------------- painel gerencial */
+const ABAS_GESTAO = [
+  { id: 'painel', nome: 'Painel' },
+  { id: 'inscritos', nome: 'Inscritos e lotes' },
+  { id: 'setores', nome: 'Setores' },
+  { id: 'lancamentos', nome: 'Lançamentos' },
+  { id: 'entradas', nome: 'Entradas' },
+  { id: 'orcamento', nome: 'Editar orçamento' }
+];
+
+function telaGestao() {
+  const c = calcular();
+  const aba = App.aba || 'painel';
+  const abas = ABAS_GESTAO.map(a => a.id === 'lancamentos' && c.pendentesQtd ? Object.assign({}, a, { badge: c.pendentesQtd }) : a);
+  let corpo = '';
+  if (aba === 'painel') corpo = gPainel(c);
+  else if (aba === 'inscritos') corpo = gInscritos(c);
+  else if (aba === 'setores') corpo = gSetores(c);
+  else if (aba === 'lancamentos') corpo = gLancamentos(c);
+  else if (aba === 'entradas') corpo = gEntradas(c);
+  else corpo = gOrcamento(c);
+  return casca('Coordenação', 'Painel da coordenação geral', abas, aba, corpo);
+}
+
+function kpi(lab, val, cmp, cls) {
+  return '<div class="kpi ' + (cls || '') + '"><div class="lab">' + esc(lab) + '</div><div class="val">' + val + '</div>' +
+    (cmp ? '<div class="cmp">' + cmp + '</div>' : '') + '</div>';
+}
+
+function gPainel(c) {
+  const alertas = [];
+  if (c.pendentesQtd) alertas.push('<div class="alert warn"><span>●</span><div><b>' + c.pendentesQtd + ' lançamento(s) aguardando sua análise.</b> Enquanto isso, eles já reduzem o saldo do setor.</div></div>');
+  const estourados = c.setores.filter(s => s.saldo < 0);
+  if (estourados.length) alertas.push('<div class="alert bad"><span>▲</span><div><b>Orçamento ultrapassado:</b> ' + estourados.map(s => esc(s.nome) + ' (' + money(s.saldo) + ')').join(', ') + '.</div></div>');
+  if (c.aReembolsar > 0) alertas.push('<div class="alert info"><span>↺</span><div><b>' + money(c.aReembolsar) + '</b> em reembolsos aguardando pagamento aos líderes.</div></div>');
+  if (c.resultadoProjetado < 0) alertas.push('<div class="alert bad"><span>▲</span><div>O resultado projetado está negativo em <b>' + money(Math.abs(c.resultadoProjetado)) + '</b>. Reveja preços de lote, metas de inscritos ou cortes de orçamento.</div></div>');
+
+  const porData = {};
+  Store.lancamentos.filter(l => l.status !== 'rejeitado').forEach(l => { const d = (l.data || '').slice(0, 10); if (d) porData[d] = (porData[d] || 0) + (Number(l.valor) || 0); });
+  const datas = Object.keys(porData).sort();
+  let ac = 0;
+  const pontos = datas.map(d => { ac += porData[d]; return { x: d, y: ac }; });
+
+  const distrib = c.setores.filter(s => s.orcamento > 0).sort((a, b) => b.orcamento - a.orcamento);
+
+  return '<div class="kpis">' +
+    kpi('Inscritos lançados', int(c.inscritos), 'meta de ' + int(c.metaInscritos) + ' · ' + pct(c.metaInscritos ? c.inscritos / c.metaInscritos * 100 : 0), 'accent') +
+    kpi('Receita apurada', money0(c.receitaTotal), 'ingressos ' + money0(c.receitaIngressos) + (c.entradasTotal ? ' + entradas ' + money0(c.entradasTotal) : '')) +
+    kpi('Custo projetado', money0(c.custoProjetado), 'orçamento dos setores ' + money0(c.orcamentoSetores)) +
+    kpi('Resultado projetado', money0(c.resultadoProjetado), money(c.margemPorPagante) + ' por inscrito', c.resultadoProjetado >= 0 ? 'good' : 'bad') +
+    kpi('Saldo em caixa dos setores', money0(c.saldoGeral), 'já lançado: ' + money0(c.gastoAprovado + c.gastoPendente)) +
+    kpi('Preço de equilíbrio', money(c.precoEquilibrio), 'por ingresso, com ' + int(c.inscritos) + ' inscritos') +
+    '</div>' +
+    (alertas.length ? '<div class="stack mt">' + alertas.join('') + '</div>' : '') +
+    '<div class="split mt">' +
+    '<div class="card"><div class="card-head"><h3>Orçado e gasto por setor</h3><span class="small muted">barra cheia = orçamento</span></div><div class="card-body">' +
+    (c.setores.length ? barrasHorizontais(c.setores.map(s => ({ nome: s.nome, orcamento: s.orcamento, gasto: s.comprometido, cor: s.cor }))) : '<div class="empty">Nenhum setor cadastrado.</div>') +
+    '</div></div>' +
+    '<div class="card"><div class="card-head"><h3>Onde está o dinheiro</h3></div><div class="card-body">' +
+    (distrib.length ? donut(distrib.map(s => ({ valor: s.orcamento, cor: s.cor })), 'em orçamento', money0(c.orcamentoSetores)) +
+      '<div class="legend-row">' + distrib.slice(0, 8).map(s => '<span><i style="background:' + s.cor + '"></i>' + esc(s.nome) + ' · ' + pct(c.orcamentoSetores ? s.orcamento / c.orcamentoSetores * 100 : 0) + '</span>').join('') + '</div>'
+      : '<div class="empty">Defina os orçamentos na aba Editar orçamento.</div>') +
+    '</div></div></div>' +
+    '<div class="split mt">' +
+    '<div class="card"><div class="card-head"><h3>Receita por lote</h3></div><div class="card-body">' +
+    barrasVerticais(c.lotes.map((l, i) => ({ nome: l.nome, valor: l.receita, alvo: l.meta * l.preco, cor: CORES[i % CORES.length], sub: int(l.vendidos) + '/' + int(l.meta) + ' insc.' }))) +
+    '<p class="hint">A barra clara mostra a receita caso a meta do lote seja atingida.</p></div></div>' +
+    '<div class="card"><div class="card-head"><h3>Resultado projetado</h3></div><div class="card-body"><div class="tw"><table>' +
+    linhaRes('Receita com ingressos', c.receitaIngressos) +
+    linhaRes('Entradas e aportes', c.entradasTotal) +
+    linhaRes('Taxa da plataforma (' + pct(c.taxaAdm * 100) + ')', -c.taxa) +
+    linhaRes('Isenções (' + int(c.isentosSemLocal + c.isentosComLocal) + ' pessoas)', -c.custoIsencoes) +
+    linhaRes('Orçamento dos setores', -c.orcamentoSetores) +
+    (c.reserva ? linhaRes('Reserva de contingência', -c.reserva) : '') +
+    '<tr class="tfoot"><td>Resultado projetado</td><td class="num ' + (c.resultadoProjetado >= 0 ? 'pos' : 'negv') + '">' + money(c.resultadoProjetado) + '</td></tr>' +
+    '<tr><td class="small muted">Se o evento parasse hoje (só o que já foi gasto)</td><td class="num small ' + (c.resultadoAtual >= 0 ? 'pos' : 'negv') + '">' + money(c.resultadoAtual) + '</td></tr>' +
+    '</table></div></div></div></div>' +
+    '<div class="card mt"><div class="card-head"><h3>Evolução dos gastos</h3><span class="small muted">acumulado, lançamentos aprovados e pendentes</span></div><div class="card-body">' +
+    linhaEvolucao(pontos) + '</div></div>';
+}
+function linhaRes(nome, v) {
+  return '<tr><td>' + esc(nome) + '</td><td class="num">' + money(v) + '</td></tr>';
+}
+
+/* ------------------------------------------------ inscritos e lotes */
+function gInscritos(c) {
+  const linhas = c.lotes.map((l, i) =>
+    '<tr>' +
+    '<td><span class="chip"><span class="swatch" style="background:' + CORES[i % CORES.length] + '"></span>' + esc(l.nome) + '</span></td>' +
+    '<td class="num"><input class="inp num" style="max-width:118px;text-align:right" data-set="lotes.' + i + '.preco" data-tipo="num" value="' + l.preco.toFixed(2).replace('.', ',') + '"></td>' +
+    '<td class="num"><input class="inp" style="max-width:90px;text-align:right" data-set="lotes.' + i + '.meta" data-tipo="int" value="' + l.meta + '"></td>' +
+    '<td class="num"><div class="row" style="justify-content:flex-end;flex-wrap:nowrap;gap:6px">' +
+    '<button class="btn ghost sm" data-inc="' + i + '" data-d="-1">−</button>' +
+    '<input class="inp" style="max-width:82px;text-align:center" data-set="lotes.' + i + '.vendidos" data-tipo="int" value="' + l.vendidos + '">' +
+    '<button class="btn ghost sm" data-inc="' + i + '" data-d="1">+</button></div></td>' +
+    '<td class="num">' + money(l.receita) + '</td>' +
+    '<td style="min-width:130px">' + medidor(l.meta ? l.vendidos / l.meta * 100 : 0) + '<span class="small muted">' + pct(l.meta ? l.vendidos / l.meta * 100 : 0) + ' da meta</span></td>' +
+    '</tr>').join('');
+
+  const precoAtual = c.lotes.length ? c.lotes[c.lotes.length - 1].preco : 0;
+  const custoMarginal = c.localPP + c.alimPP + precoAtual * c.taxaAdm;
+
+  return '<div class="sec-title"><h2>Inscritos por lote</h2><p>Este número move todo o sistema: receita, orçamento por inscrito e saldo de cada setor.</p></div>' +
+    '<div class="card"><div class="tw"><table>' +
+    '<thead><tr><th>Lote</th><th class="num">Preço do ingresso</th><th class="num">Meta</th><th class="num">Inscritos</th><th class="num">Receita</th><th>Andamento</th></tr></thead>' +
+    '<tbody>' + linhas + '</tbody>' +
+    '<tfoot><tr class="tfoot"><td>Total</td><td class="num">—</td><td class="num">' + int(c.metaInscritos) + '</td><td class="num">' + int(c.inscritos) + '</td><td class="num">' + money(c.receitaIngressos) + '</td><td>' + medidor(c.metaInscritos ? c.inscritos / c.metaInscritos * 100 : 0) + '</td></tr></tfoot>' +
+    '</table></div></div>' +
+    '<div class="cols mt">' +
+    '<div class="card pad"><h3>O que cada inscrito representa</h3>' +
+    '<div class="divider"></div>' +
+    '<div class="tw"><table>' +
+    '<tr><td>Preço do lote atual</td><td class="num">' + money(precoAtual) + '</td></tr>' +
+    '<tr><td>Custo de local por pessoa</td><td class="num">' + money(c.localPP) + '</td></tr>' +
+    '<tr><td>Custo de alimentação por pessoa</td><td class="num">' + money(c.alimPP) + '</td></tr>' +
+    '<tr><td>Taxa da plataforma</td><td class="num">' + money(precoAtual * c.taxaAdm) + '</td></tr>' +
+    '<tr class="tfoot"><td>Sobra por inscrito adicional</td><td class="num ' + (precoAtual - custoMarginal >= 0 ? 'pos' : 'negv') + '">' + money(precoAtual - custoMarginal) + '</td></tr>' +
+    '</table></div>' +
+    '<p class="hint">Cada novo inscrito também aumenta automaticamente o orçamento dos setores calculados por inscrito ou por percentual da receita.</p></div>' +
+    '<div class="card pad"><h3>Simulador rápido</h3>' +
+    '<p class="small muted" style="margin:4px 0 12px">Veja o efeito de vender mais (ou menos) ingressos antes de mexer nos números oficiais.</p>' +
+    '<label class="f"><span>Inscritos adicionais no lote atual</span><input type="range" id="sim" min="-50" max="150" step="5" value="0" style="width:100%"></label>' +
+    '<div id="simOut" class="stack"></div></div>' +
+    '<div class="card pad"><h3>Isenções</h3>' +
+    '<div class="tw"><table>' +
+    '<tr><td>Cortesias do dono do local (sem custo de local)</td><td class="num">' + int(c.isentosSemLocal) + '</td></tr>' +
+    '<tr><td>Isenções por conta do evento (local + alimentação)</td><td class="num">' + int(c.isentosComLocal) + '</td></tr>' +
+    '<tr class="tfoot"><td>Custo total das isenções</td><td class="num">' + money(c.custoIsencoes) + '</td></tr>' +
+    '</table></div>' +
+    '<p class="hint">Edite as quantidades na aba <b>Editar orçamento</b>.</p></div>' +
+    '</div>';
+}
+
+/* ------------------------------------------------ setores */
+function gSetores(c) {
+  const cards = c.setores.map(s =>
+    '<div class="sector" data-setor="' + s.id + '">' +
+    '<div class="nome"><span class="swatch" style="background:' + s.cor + '"></span>' + esc(s.nome) + '</div>' +
+    '<div class="saldo ' + (s.saldo < 0 ? 'negv' : '') + '">' + money(s.saldo) + '</div>' +
+    '<div class="of">de ' + money(s.orcamento) + ' · ' + (s.tipo === 'fixo' ? 'valor fixo' : s.tipo === 'percentual' ? pct(s.percentual) + ' da receita' : money(s.porInscrito) + ' por inscrito') + '</div>' +
+    medidor(s.consumo) +
+    '<div class="foot"><span>' + s.qtd + ' lançamento(s)</span><span>' + pct(s.consumo) + ' usado</span></div>' +
+    (s.pendentesQtd ? '<div class="mt"><span class="tag pend">' + s.pendentesQtd + ' aguardando análise</span></div>' : '') +
+    '</div>').join('');
+
+  return '<div class="sec-title"><h2>Setores</h2><p>Clique em um setor para ver o extrato e ajustar a verba.</p></div>' +
+    '<div class="sector-grid">' + cards + '</div>' +
+    '<div class="card mt"><div class="card-head"><h3>Consolidado</h3><button class="btn ghost sm" data-csv="setores">Exportar CSV</button></div><div class="tw"><table>' +
+    '<thead><tr><th>Setor</th><th>Responsável</th><th class="num">Orçamento</th><th class="num">Aprovado</th><th class="num">Aguardando</th><th class="num">Saldo</th><th class="num">Uso</th></tr></thead><tbody>' +
+    c.setores.map(s => '<tr data-setor="' + s.id + '" style="cursor:pointer">' +
+      '<td><span class="chip"><span class="swatch" style="background:' + s.cor + '"></span>' + esc(s.nome) + '</span></td>' +
+      '<td class="small muted">' + esc(s.responsavel || '—') + '</td>' +
+      '<td class="num">' + money(s.orcamento) + '</td>' +
+      '<td class="num">' + money(s.aprovado) + '</td>' +
+      '<td class="num">' + (s.pendente ? '<span class="tag pend">' + money(s.pendente) + '</span>' : '—') + '</td>' +
+      '<td class="num ' + (s.saldo < 0 ? 'negv' : 'pos') + '">' + money(s.saldo) + '</td>' +
+      '<td class="num">' + pct(s.consumo) + '</td></tr>').join('') +
+    '</tbody><tfoot><tr class="tfoot"><td>Total</td><td></td><td class="num">' + money(c.orcamentoSetores) + '</td><td class="num">' + money(c.gastoAprovado) + '</td><td class="num">' + money(c.gastoPendente) + '</td><td class="num">' + money(c.saldoGeral) + '</td><td class="num">' + pct(c.orcamentoSetores ? (c.gastoAprovado + c.gastoPendente) / c.orcamentoSetores * 100 : 0) + '</td></tr></tfoot>' +
+    '</table></div></div>';
+}
+
+function modalSetor(id) {
+  const c = calcular();
+  const s = c.setores.find(x => x.id === id);
+  if (!s) return;
+  const lista = s.lancamentos.slice().sort((a, b) => (b.data || '').localeCompare(a.data || ''));
+  const corpo = '<div class="kpis">' +
+    kpi('Orçamento', money(s.orcamento), s.aporte ? 'inclui ' + money(s.aporte) + ' de aportes' : '') +
+    kpi('Gasto', money(s.comprometido), s.pendente ? money(s.pendente) + ' aguardando' : 'tudo aprovado') +
+    kpi('Saldo', money(s.saldo), '', s.saldo >= 0 ? 'good' : 'bad') +
+    '</div>' +
+    '<div class="divider"></div>' +
+    '<label class="f"><span>Ajustar verba deste setor</span>' +
+    (s.tipo === 'fixo' ? '<input class="inp" id="ajuste" value="' + s.valor.toFixed(2).replace('.', ',') + '"><p class="hint">Valor fixo em reais.</p>'
+      : s.tipo === 'percentual' ? '<input class="inp" id="ajuste" value="' + String(s.percentual).replace('.', ',') + '"><p class="hint">Percentual da receita total.</p>'
+        : '<input class="inp" id="ajuste" value="' + s.porInscrito.toFixed(2).replace('.', ',') + '"><p class="hint">Valor por inscrito.</p>') +
+    '</label>' +
+    '<div class="divider"></div>' +
+    '<h4 style="margin-bottom:8px">Extrato</h4>' +
+    (lista.length ? lista.map(l => '<div class="lanc"><div class="l1"><div><div class="desc">' + esc(l.descricao) + '</div>' +
+      '<div class="meta">' + dataBR(l.data) + ' · ' + esc(l.categoria || 'sem categoria') + ' · ' + esc(l.fornecedor || 'sem fornecedor') + '</div></div>' +
+      '<div class="vlr">' + money(l.valor) + '<div style="font-size:12px;font-weight:400">' + tagStatus(l.status) + '</div></div></div></div>').join('')
+      : '<div class="empty"><b>Nenhum lançamento ainda</b>Este setor ainda não registrou gastos.</div>');
+  abreModal(s.nome, corpo, '<button class="btn ghost" data-fechar>Fechar</button><button class="btn gold" data-salvar>Salvar verba</button>', (bg, fechar) => {
+    $('[data-fechar]', bg).addEventListener('click', fechar);
+    $('[data-salvar]', bg).addEventListener('click', async () => {
+      const v = parseNum($('#ajuste', bg).value);
+      await Store.salvaCore(core => {
+        const alvo = core.setores.find(x => x.id === id);
+        if (!alvo) return core;
+        if (alvo.tipo === 'fixo') alvo.valor = v;
+        else if (alvo.tipo === 'percentual') alvo.percentual = v;
+        else alvo.porInscrito = v;
+        return core;
+      });
+      toast('Verba de ' + s.nome + ' atualizada.', 'good');
+      fechar(); App.render();
+    });
+  });
+}
+
+/* ------------------------------------------------ lançamentos (visão da coordenação) */
+function gLancamentos(c) {
+  const f = App.filtros;
+  let lista = Store.lancamentos.slice();
+  if (f.setor !== 'todos') lista = lista.filter(l => l.setor === f.setor);
+  if (f.status !== 'todos') lista = lista.filter(l => (l.status || 'pendente') === f.status);
+  if (f.busca) {
+    const q = norm(f.busca);
+    lista = lista.filter(l => norm(l.descricao).indexOf(q) >= 0 || norm(l.fornecedor).indexOf(q) >= 0 || norm(l.justificativa).indexOf(q) >= 0);
+  }
+  lista.sort((a, b) => (b.data || '').localeCompare(a.data || '') || (b.criadoEm || '').localeCompare(a.criadoEm || ''));
+  const total = soma(lista, l => l.valor);
+
+  return '<div class="sec-title"><h2>Lançamentos</h2><p>Aprove, recuse e acompanhe os comprovantes enviados pelos setores.</p></div>' +
+    '<div class="card pad mb"><div class="row">' +
+    '<select id="fSetor" style="max-width:220px"><option value="todos">Todos os setores</option>' +
+    c.setores.map(s => '<option value="' + s.id + '"' + (f.setor === s.id ? ' selected' : '') + '>' + esc(s.nome) + '</option>').join('') + '</select>' +
+    '<select id="fStatus" style="max-width:190px">' +
+    ['todos:Todos os status', 'pendente:Aguardando', 'aprovado:Aprovados', 'rejeitado:Recusados'].map(o => {
+      const p = o.split(':'); return '<option value="' + p[0] + '"' + (f.status === p[0] ? ' selected' : '') + '>' + p[1] + '</option>';
+    }).join('') + '</select>' +
+    '<input id="fBusca" class="inp" style="max-width:260px" placeholder="Buscar descrição ou fornecedor" value="' + esc(f.busca) + '">' +
+    '<span class="chip">' + lista.length + ' lançamento(s) · ' + money(total) + '</span>' +
+    '<button class="btn ghost sm" data-csv="lancamentos" style="margin-left:auto">Exportar CSV</button>' +
+    '</div></div>' +
+    (lista.length ? lista.map(l => cartaoLancamento(l, true)).join('')
+      : '<div class="card"><div class="empty"><b>Nada por aqui</b>Nenhum lançamento corresponde a esses filtros.</div></div>');
+}
+
+function cartaoLancamento(l, gestor, acoesExtras) {
+  const s = setorPorId(l.setor);
+  const r = l.reembolso || {};
+  const anexos = (l.anexos || []).map((a, i) => '<a class="anexo" href="#" data-anexo="' + l.id + ':' + i + '">📎 ' + esc(a.nome || 'comprovante') + '</a>').join('');
+  return '<div class="lanc" data-lanc="' + l.id + '">' +
+    '<div class="l1"><div style="min-width:0">' +
+    '<div class="desc">' + esc(l.descricao) + '</div>' +
+    '<div class="meta">' + dataBR(l.data) + ' · ' + (gestor && s ? '<span class="chip" style="padding:1px 8px"><span class="swatch" style="background:' + s.cor + '"></span>' + esc(s.nome) + '</span> · ' : '') +
+    esc(l.categoria || 'sem categoria') + (l.fornecedor ? ' · ' + esc(l.fornecedor) : '') + ' · ' + esc(l.pagamento || '—') + '</div>' +
+    '</div><div class="vlr">' + money(l.valor) + '<div style="font-size:12px;font-weight:400;margin-top:4px">' + tagStatus(l.status) + '</div></div></div>' +
+    (l.justificativa ? '<div class="just">' + esc(l.justificativa) + '</div>' : '') +
+    (anexos ? '<div class="anexos">' + anexos + '</div>' : '<div class="anexos"><span class="small muted">Sem comprovante anexado</span></div>') +
+    (r.necessita ? '<div class="alert ' + (r.pago ? 'good' : 'info') + '" style="margin-top:10px"><span>↺</span><div>' +
+      (r.pago ? 'Reembolso pago' : 'Reembolsar ' + esc(r.titular || 'o líder')) + ' · ' +
+      (r.tipo === 'conta' ? esc(r.banco || '') + ' ag. ' + esc(r.agencia || '') + ' c/c ' + esc(r.conta || '') : 'Pix: <b>' + esc(r.chave || '—') + '</b>') +
+      (r.titular ? ' · ' + esc(r.titular) : '') + '</div></div>' : '') +
+    (l.obs ? '<div class="just" style="border-left-color:var(--neg)"><b>Coordenação:</b> ' + esc(l.obs) + '</div>' : '') +
+    (gestor ? '<div class="acts">' +
+      (l.status !== 'aprovado' ? '<button class="btn sm gold" data-ac="aprovar" data-id="' + l.id + '">Aprovar</button>' : '') +
+      (l.status !== 'rejeitado' ? '<button class="btn sm ghost" data-ac="recusar" data-id="' + l.id + '">Recusar</button>' : '') +
+      (l.status !== 'pendente' ? '<button class="btn sm ghost" data-ac="pendente" data-id="' + l.id + '">Voltar para análise</button>' : '') +
+      (r.necessita && !r.pago ? '<button class="btn sm ghost" data-ac="reembolsado" data-id="' + l.id + '">Marcar reembolso pago</button>' : '') +
+      '<button class="btn sm ghost" data-ac="excluir" data-id="' + l.id + '">Excluir</button>' +
+      '</div>' : (acoesExtras || '')) +
+    '</div>';
+}
+
+/* ------------------------------------------------ entradas */
+function gEntradas(c) {
+  const lista = Store.entradas.slice().sort((a, b) => (b.data || '').localeCompare(a.data || ''));
+  return '<div class="sec-title"><h2>Entradas e aportes</h2><p>Patrocínios, doações e qualquer dinheiro fora da bilheteria. Ao destinar a um setor, a verba dele sobe na hora.</p></div>' +
+    '<div class="split">' +
+    '<div class="card"><div class="card-head"><h3>Registrar entrada</h3></div><div class="card-body">' +
+    '<div class="grid2">' +
+    '<label class="f"><span>Descrição</span><input class="inp" id="eDesc" placeholder="Patrocínio padaria São José"></label>' +
+    '<label class="f"><span>Valor</span><input class="inp" id="eValor" placeholder="0,00"></label>' +
+    '</div><div class="grid3">' +
+    '<label class="f"><span>Data</span><input type="date" id="eData" value="' + hoje() + '"></label>' +
+    '<label class="f"><span>Tipo</span><select id="eTipo">' + ['Patrocínio', 'Doação', 'Venda extra', 'Aporte da igreja', 'Outro'].map(t => '<option>' + t + '</option>').join('') + '</select></label>' +
+    '<label class="f"><span>Situação</span><select id="eStatus"><option value="confirmado">Confirmado</option><option value="previsto">Previsto</option></select></label>' +
+    '</div>' +
+    '<label class="f"><span>Destino</span><select id="eSetor"><option value="geral">Caixa geral do evento</option>' +
+    c.setores.map(s => '<option value="' + s.id + '">' + esc(s.nome) + ' (aumenta a verba do setor)</option>').join('') + '</select></label>' +
+    '<button class="btn gold" id="eSalvar">Registrar entrada</button>' +
+    '</div></div>' +
+    '<div class="card"><div class="card-head"><h3>Resumo</h3></div><div class="card-body"><div class="tw"><table>' +
+    '<tr><td>Ingressos</td><td class="num">' + money(c.receitaIngressos) + '</td></tr>' +
+    '<tr><td>Entradas confirmadas</td><td class="num">' + money(c.entradasTotal) + '</td></tr>' +
+    '<tr><td>Entradas previstas</td><td class="num muted">' + money(c.entradasPrevistas) + '</td></tr>' +
+    '<tr class="tfoot"><td>Receita apurada</td><td class="num">' + money(c.receitaTotal) + '</td></tr>' +
+    '</table></div></div></div></div>' +
+    '<div class="card mt"><div class="card-head"><h3>Lançadas</h3></div><div class="tw"><table>' +
+    '<thead><tr><th>Data</th><th>Descrição</th><th>Tipo</th><th>Destino</th><th>Situação</th><th class="num">Valor</th><th></th></tr></thead><tbody>' +
+    (lista.length ? lista.map(e => '<tr><td>' + dataBR(e.data) + '</td><td>' + esc(e.descricao) + '</td><td class="small muted">' + esc(e.tipo || '—') + '</td>' +
+      '<td>' + (e.setor && e.setor !== 'geral' ? esc(nomeSetor(e.setor)) : 'Caixa geral') + '</td>' +
+      '<td>' + (e.status === 'previsto' ? '<span class="tag neutral">Previsto</span>' : '<span class="tag apr">Confirmado</span>') + '</td>' +
+      '<td class="num">' + money(e.valor) + '</td>' +
+      '<td class="num"><button class="btn ghost sm" data-entrada-x="' + e.id + '">Excluir</button></td></tr>').join('')
+      : '<tr><td colspan="7"><div class="empty"><b>Nenhuma entrada registrada</b>Patrocínios e doações entram aqui.</div></td></tr>') +
+    '</tbody></table></div></div>';
+}
+
+/* ------------------------------------------------ edição do orçamento */
+function gOrcamento(c) {
+  const ev = Store.core.evento, p = Store.core.parametros;
+  const linhasLote = Store.core.lotes.map((l, i) =>
+    '<tr>' +
+    '<td><input class="inp" data-set="lotes.' + i + '.nome" value="' + esc(l.nome) + '"></td>' +
+    '<td class="num"><input class="inp" style="text-align:right" data-set="lotes.' + i + '.preco" data-tipo="num" value="' + Number(l.preco || 0).toFixed(2).replace('.', ',') + '"></td>' +
+    '<td class="num"><input class="inp" style="text-align:right;max-width:92px" data-set="lotes.' + i + '.meta" data-tipo="int" value="' + (l.meta || 0) + '"></td>' +
+    '<td class="num"><input class="inp" style="text-align:right;max-width:92px" data-set="lotes.' + i + '.vendidos" data-tipo="int" value="' + (l.vendidos || 0) + '"></td>' +
+    '<td class="num"><button class="btn ghost sm" data-lote-x="' + i + '">Remover</button></td>' +
+    '</tr>').join('');
+
+  const linhasSetor = Store.core.setores.map((s, i) => {
+    const calc = c.setores.find(x => x.id === s.id) || { orcamento: 0 };
+    return '<tr>' +
+      '<td><input class="inp" style="min-width:140px" data-set="setores.' + i + '.nome" value="' + esc(s.nome) + '"></td>' +
+      '<td><input class="inp" style="max-width:130px" data-set="setores.' + i + '.login" value="' + esc(s.login || '') + '"></td>' +
+      '<td><select data-set="setores.' + i + '.tipo" style="max-width:150px">' +
+      ['fixo:Valor fixo', 'percentual:% da receita', 'porInscrito:Por inscrito'].map(o => { const q = o.split(':'); return '<option value="' + q[0] + '"' + (s.tipo === q[0] ? ' selected' : '') + '>' + q[1] + '</option>'; }).join('') +
+      '</select></td>' +
+      '<td class="num"><input class="inp" style="text-align:right;max-width:120px" data-set="setores.' + i + '.' + (s.tipo === 'percentual' ? 'percentual' : s.tipo === 'porInscrito' ? 'porInscrito' : 'valor') + '" data-tipo="num" value="' +
+      String(s.tipo === 'percentual' ? (s.percentual || 0) : s.tipo === 'porInscrito' ? Number(s.porInscrito || 0).toFixed(2) : Number(s.valor || 0).toFixed(2)).replace('.', ',') + '"></td>' +
+      '<td class="num">' + money(calc.orcamento) + '</td>' +
+      '<td class="num">' + pct(c.orcamentoSetores ? calc.orcamento / c.orcamentoSetores * 100 : 0) + '</td>' +
+      '<td><input class="inp" style="min-width:130px" data-set="setores.' + i + '.responsavel" value="' + esc(s.responsavel || '') + '" placeholder="responsável"></td>' +
+      '<td><input type="color" data-set="setores.' + i + '.cor" value="' + esc(s.cor || '#2F5497') + '" style="width:42px;height:34px;padding:2px"></td>' +
+      '<td class="num"><button class="btn ghost sm" data-setor-x="' + i + '">Remover</button></td>' +
+      '</tr>';
+  }).join('');
+
+  const somaPct = soma(Store.core.setores.filter(s => s.tipo === 'percentual'), s => s.percentual);
+
+  return '<div class="sec-title"><h2>Editar orçamento</h2><p>Tudo aqui é gravado na hora e aparece imediatamente nos painéis dos setores.</p></div>' +
+    '<div class="cols">' +
+    '<div class="card pad"><h3>O evento</h3><div class="divider"></div>' +
+    '<label class="f"><span>Nome</span><input class="inp" data-set="evento.nome" value="' + esc(ev.nome || '') + '"></label>' +
+    '<div class="grid2">' +
+    '<label class="f"><span>Data</span><input type="date" data-set="evento.data" value="' + esc(ev.data || '') + '"></label>' +
+    '<label class="f"><span>Local</span><input class="inp" data-set="evento.local" value="' + esc(ev.local || '') + '"></label>' +
+    '</div>' +
+    '<label class="f"><span>Senha de acesso (todos os painéis)</span><input class="inp" data-set="evento.senha" value="' + esc(ev.senha || '') + '"></label>' +
+    '<p class="hint">A senha vale para a coordenação e para os setores. Ao trocar, avise as lideranças.</p></div>' +
+
+    '<div class="card pad"><h3>Premissas financeiras</h3><div class="divider"></div>' +
+    '<div class="grid2">' +
+    '<label class="f"><span>Taxa da plataforma (%)</span><input class="inp" data-set="parametros.taxaAdm" data-tipo="pctFrac" value="' + String((Number(p.taxaAdm) || 0) * 100).replace('.', ',') + '"></label>' +
+    '<label class="f"><span>Reserva de contingência (R$)</span><input class="inp" data-set="parametros.reserva" data-tipo="num" value="' + Number(p.reserva || 0).toFixed(2).replace('.', ',') + '"></label>' +
+    '</div><div class="grid2">' +
+    '<label class="f"><span>Cortesias sem custo de local</span><input class="inp" data-set="parametros.isentosSemLocal" data-tipo="int" value="' + (p.isentosSemLocal || 0) + '"></label>' +
+    '<label class="f"><span>Isenções por conta do evento</span><input class="inp" data-set="parametros.isentosComLocal" data-tipo="int" value="' + (p.isentosComLocal || 0) + '"></label>' +
+    '</div>' +
+    '<p class="hint">Custo das isenções hoje: <b>' + money(c.custoIsencoes) + '</b>, calculado com o valor por inscrito dos setores Local e Alimentação.</p></div>' +
+    '</div>' +
+
+    '<div class="card mt"><div class="card-head"><h3>Lotes</h3><button class="btn ghost sm" id="addLote">Adicionar lote</button></div>' +
+    '<div class="tw"><table><thead><tr><th>Nome</th><th class="num">Preço</th><th class="num">Meta</th><th class="num">Inscritos</th><th></th></tr></thead><tbody>' + linhasLote + '</tbody></table></div></div>' +
+
+    '<div class="card mt"><div class="card-head"><h3>Setores e distribuição da verba</h3>' +
+    '<span class="small muted">' + (somaPct > 0 ? 'percentuais em uso: ' + pct(somaPct) + ' da receita' : 'nenhum setor no modo percentual') + '</span>' +
+    '<button class="btn ghost sm" id="addSetor">Adicionar setor</button></div>' +
+    '<div class="tw"><table><thead><tr><th>Setor</th><th>Login</th><th>Modo</th><th class="num">Parâmetro</th><th class="num">Verba hoje</th><th class="num">% do total</th><th>Responsável</th><th>Cor</th><th></th></tr></thead>' +
+    '<tbody>' + linhasSetor + '</tbody>' +
+    '<tfoot><tr class="tfoot"><td colspan="4">Total orçado nos setores</td><td class="num">' + money(c.orcamentoSetores) + '</td><td class="num">100%</td><td colspan="3"></td></tr></tfoot></table></div>' +
+    '<div class="card-body"><p class="hint" style="margin:0">Modo <b>valor fixo</b>: verba em reais. <b>% da receita</b>: a verba acompanha o total arrecadado. <b>Por inscrito</b>: a verba multiplica pelo número de inscritos — é assim que Local e Alimentação se ajustam sozinhos.</p></div></div>' +
+
+    '<div class="card mt pad"><h3>Cópia de segurança</h3>' +
+    '<p class="small muted" style="margin:4px 0 12px">Baixe tudo (orçamento, lançamentos e entradas) ou recupere de um arquivo salvo.</p>' +
+    '<div class="row"><button class="btn ghost sm" id="expJson">Baixar backup</button>' +
+    '<label class="btn ghost sm" style="cursor:pointer">Restaurar backup<input type="file" id="impJson" accept="application/json" style="display:none"></label>' +
+    '<button class="btn ghost sm" id="resetTudo">Voltar aos valores da planilha</button></div></div>';
+}
+
+/* ------------------------------------------------ ligações do painel gerencial */
+function setPath(obj, caminho, valor) {
+  const p = caminho.split('.');
+  let alvo = obj;
+  for (let i = 0; i < p.length - 1; i++) { const k = /^\d+$/.test(p[i]) ? Number(p[i]) : p[i]; if (alvo[k] == null) alvo[k] = {}; alvo = alvo[k]; }
+  const ult = /^\d+$/.test(p[p.length - 1]) ? Number(p[p.length - 1]) : p[p.length - 1];
+  alvo[ult] = valor;
+  return obj;
+}
+
+function ligaCampos() {
+  $$('[data-set]').forEach(el => {
+    el.addEventListener('change', async () => {
+      const tipo = el.dataset.tipo || 'texto';
+      let v = el.value;
+      if (tipo === 'num') v = parseNum(v);
+      else if (tipo === 'int') v = Math.max(0, Math.round(parseNum(v)));
+      else if (tipo === 'pctFrac') v = parseNum(v) / 100;
+      await Store.salvaCore(core => setPath(core, el.dataset.set, v));
+      App.render();
+    });
+  });
+}
+
+async function acaoLancamento(ac, id) {
+  const l = Store.lancamentos.find(x => x.id === id);
+  if (!l) return;
+  if (ac === 'aprovar') { await Store.gravaLancamento(Object.assign({}, l, { status: 'aprovado', obs: '' })); toast('Lançamento aprovado.', 'good'); }
+  else if (ac === 'pendente') { await Store.gravaLancamento(Object.assign({}, l, { status: 'pendente' })); toast('Voltou para análise.'); }
+  else if (ac === 'reembolsado') { await Store.gravaLancamento(Object.assign({}, l, { reembolso: Object.assign({}, l.reembolso, { pago: true, pagoEm: hoje() }) })); toast('Reembolso marcado como pago.', 'good'); }
+  else if (ac === 'excluir') {
+    if (await confirmar('Excluir lançamento', 'Isso apaga o registro e o comprovante anexado. Não dá para desfazer.', 'Excluir')) {
+      await Store.apagaLancamento(id); toast('Lançamento excluído.');
+    }
+  } else if (ac === 'recusar') {
+    abreModal('Recusar lançamento', '<p class="small muted" style="margin-top:0">O líder do setor vai ver este motivo no painel dele.</p>' +
+      '<label class="f"><span>Motivo</span><textarea id="motivo" placeholder="Ex.: falta o comprovante fiscal"></textarea></label>',
+      '<button class="btn ghost" data-c>Cancelar</button><button class="btn danger" data-ok>Recusar</button>', (bg, fechar) => {
+        $('[data-c]', bg).addEventListener('click', fechar);
+        $('[data-ok]', bg).addEventListener('click', async () => {
+          await Store.gravaLancamento(Object.assign({}, l, { status: 'rejeitado', obs: $('#motivo', bg).value.trim() }));
+          fechar(); toast('Lançamento recusado.'); App.render();
+        });
+      });
+    return;
+  }
+  App.render();
+}
+
+async function verAnexo(lancId, idx) {
+  const l = Store.lancamentos.find(x => x.id === lancId);
+  if (!l) return;
+  const meta = (l.anexos || [])[idx];
+  if (!meta) return;
+  const fonte = await Store.leAnexo(meta);
+  if (!fonte) return toast('Comprovante não encontrado.', 'bad');
+  const ehImg = /^image\//.test(meta.tipo || '') || /^data:image/.test(fonte);
+  abreModal(meta.nome || 'Comprovante',
+    ehImg ? '<img src="' + fonte + '" alt="Comprovante" style="width:100%;border-radius:10px">'
+      : '<p>Arquivo <b>' + esc(meta.tipo || '') + '</b>.</p><p><a href="' + fonte + '" target="_blank" rel="noopener">Abrir o comprovante em outra aba</a></p>',
+    '<button class="btn ghost" data-c>Fechar</button>', (bg, fechar) => $('[data-c]', bg).addEventListener('click', fechar));
+}
+
+function paraCSV(linhas) {
+  return '\uFEFF' + linhas.map(l => l.map(v => {
+    const s = String(v == null ? '' : v).replace(/"/g, '""');
+    return /[;"\n]/.test(s) ? '"' + s + '"' : s;
+  }).join(';')).join('\n');
+}
+function exportaCSV(tipo) {
+  const c = calcular();
+  if (tipo === 'setores') {
+    const l = [['Setor', 'Responsavel', 'Modo', 'Orcamento', 'Aprovado', 'Aguardando', 'Saldo', '% usado']];
+    c.setores.forEach(s => l.push([s.nome, s.responsavel || '', s.tipo, s.orcamento.toFixed(2), s.aprovado.toFixed(2), s.pendente.toFixed(2), s.saldo.toFixed(2), s.consumo.toFixed(1)]));
+    Store.baixar('adorar-te-2027-setores.csv', paraCSV(l));
+  } else {
+    const l = [['Data', 'Setor', 'Descricao', 'Categoria', 'Fornecedor', 'Pagamento', 'Valor', 'Status', 'Justificativa', 'Reembolso', 'Chave/Conta', 'Titular', 'Pago']];
+    Store.lancamentos.slice().sort((a, b) => (a.data || '').localeCompare(b.data || '')).forEach(x => {
+      const r = x.reembolso || {};
+      l.push([dataBR(x.data), nomeSetor(x.setor), x.descricao, x.categoria || '', x.fornecedor || '', x.pagamento || '',
+      (Number(x.valor) || 0).toFixed(2), x.status || 'pendente', x.justificativa || '',
+      r.necessita ? 'sim' : 'nao', r.necessita ? (r.tipo === 'conta' ? (r.banco || '') + ' ag ' + (r.agencia || '') + ' cc ' + (r.conta || '') : r.chave || '') : '',
+      r.titular || '', r.pago ? 'sim' : 'nao']);
+    });
+    Store.baixar('adorar-te-2027-lancamentos.csv', paraCSV(l));
+  }
+  toast('Arquivo gerado.', 'good');
+}
+
+function ligaGestao() {
+  ligaCasca();
+  ligaCampos();
+  const aba = App.aba || 'painel';
+
+  $$('[data-inc]').forEach(b => b.addEventListener('click', async () => {
+    const i = Number(b.dataset.inc), d = Number(b.dataset.d);
+    await Store.salvaCore(core => { core.lotes[i].vendidos = Math.max(0, (Number(core.lotes[i].vendidos) || 0) + d); return core; });
+    App.render();
+  }));
+
+  const sim = $('#sim');
+  if (sim) {
+    const c = calcular();
+    const pintar = () => {
+      const extra = Number(sim.value);
+      const preco = c.lotes.length ? c.lotes[c.lotes.length - 1].preco : 0;
+      const receitaNova = c.receitaTotal + extra * preco;
+      const taxaNova = (c.receitaIngressos + extra * preco) * c.taxaAdm;
+      const inscritosNovo = c.inscritos + extra;
+      const setoresNovo = soma(Store.core.setores, s => s.tipo === 'percentual' ? (Number(s.percentual) || 0) / 100 * receitaNova
+        : s.tipo === 'porInscrito' ? (Number(s.porInscrito) || 0) * inscritosNovo : (Number(s.valor) || 0)) + soma(c.setores, s => s.aporte);
+      const resultado = receitaNova - (setoresNovo + c.custoIsencoes + taxaNova + c.reserva);
+      $('#simOut').innerHTML = '<div class="tw"><table>' +
+        '<tr><td>Inscritos</td><td class="num">' + int(inscritosNovo) + '</td></tr>' +
+        '<tr><td>Receita</td><td class="num">' + money(receitaNova) + '</td></tr>' +
+        '<tr><td>Verba total dos setores</td><td class="num">' + money(setoresNovo) + '</td></tr>' +
+        '<tr class="tfoot"><td>Resultado projetado</td><td class="num ' + (resultado >= 0 ? 'pos' : 'negv') + '">' + money(resultado) + '</td></tr>' +
+        '<tr><td class="small muted">Diferença sobre hoje</td><td class="num small">' + money(resultado - c.resultadoProjetado) + '</td></tr>' +
+        '</table></div>';
+    };
+    sim.addEventListener('input', pintar); pintar();
+  }
+
+  $$('[data-setor]').forEach(el => el.addEventListener('click', e => {
+    if (e.target.closest('input,select,button')) return;
+    modalSetor(el.dataset.setor);
+  }));
+
+  $$('[data-ac]').forEach(b => b.addEventListener('click', () => acaoLancamento(b.dataset.ac, b.dataset.id)));
+  $$('[data-anexo]').forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    const p = a.dataset.anexo.split(':'); verAnexo(p[0], Number(p[1]));
+  }));
+  $$('[data-csv]').forEach(b => b.addEventListener('click', () => exportaCSV(b.dataset.csv)));
+
+  if (aba === 'lancamentos') {
+    const fs = $('#fSetor'), ft = $('#fStatus'), fb = $('#fBusca');
+    fs.addEventListener('change', () => { App.filtros.setor = fs.value; App.render(); });
+    ft.addEventListener('change', () => { App.filtros.status = ft.value; App.render(); });
+    let t; fb.addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => { App.filtros.busca = fb.value; App.render(); const n = $('#fBusca'); if (n) { n.focus(); n.setSelectionRange(n.value.length, n.value.length); } }, 450); });
+  }
+
+  const eSalvar = $('#eSalvar');
+  if (eSalvar) eSalvar.addEventListener('click', async () => {
+    const desc = $('#eDesc').value.trim(), valor = parseNum($('#eValor').value);
+    if (!desc || valor <= 0) return toast('Informe descrição e valor.', 'bad');
+    await Store.gravaEntrada({
+      id: uid('ent'), descricao: desc, valor, data: $('#eData').value || hoje(),
+      tipo: $('#eTipo').value, status: $('#eStatus').value, setor: $('#eSetor').value, criadoEm: new Date().toISOString()
+    });
+    toast('Entrada registrada.', 'good'); App.render();
+  });
+  $$('[data-entrada-x]').forEach(b => b.addEventListener('click', async () => {
+    if (await confirmar('Excluir entrada', 'A receita deixa de contar no orçamento.', 'Excluir')) { await Store.apagaEntrada(b.dataset.entradaX); App.render(); }
+  }));
+
+  const addLote = $('#addLote');
+  if (addLote) addLote.addEventListener('click', async () => {
+    await Store.salvaCore(core => { core.lotes.push({ id: uid('lote'), nome: 'Novo lote', preco: 0, meta: 0, vendidos: 0 }); return core; });
+    App.render();
+  });
+  $$('[data-lote-x]').forEach(b => b.addEventListener('click', async () => {
+    if (!(await confirmar('Remover lote', 'Os inscritos desse lote saem da conta da receita.', 'Remover'))) return;
+    await Store.salvaCore(core => { core.lotes.splice(Number(b.dataset.loteX), 1); return core; });
+    App.render();
+  }));
+  const addSetor = $('#addSetor');
+  if (addSetor) addSetor.addEventListener('click', async () => {
+    const n = Store.core.setores.length;
+    await Store.salvaCore(core => {
+      core.setores.push({ id: uid('set'), nome: 'Novo setor', login: 'setor' + (n + 1), tipo: 'fixo', valor: 0, porInscrito: 0, percentual: 0, cor: CORES[n % CORES.length], responsavel: '', contato: '', pix: '' });
+      return core;
+    });
+    App.render();
+  });
+  $$('[data-setor-x]').forEach(b => b.addEventListener('click', async () => {
+    const i = Number(b.dataset.setorX), s = Store.core.setores[i];
+    const usados = Store.lancamentos.filter(l => l.setor === s.id).length;
+    if (!(await confirmar('Remover ' + s.nome, usados ? 'Este setor tem ' + usados + ' lançamento(s). Eles ficam órfãos no histórico.' : 'O setor sai da plataforma e o login deixa de funcionar.', 'Remover'))) return;
+    await Store.salvaCore(core => { core.setores.splice(i, 1); return core; });
+    App.render();
+  }));
+
+  const exp = $('#expJson');
+  if (exp) exp.addEventListener('click', () => {
+    const pacote = { gerado: new Date().toISOString(), core: Store.core, lancamentos: Store.lancamentos, entradas: Store.entradas };
+    Store.baixar('adorar-te-2027-backup.json', JSON.stringify(pacote, null, 2), 'application/json');
+    toast('Backup gerado.', 'good');
+  });
+  const imp = $('#impJson');
+  if (imp) imp.addEventListener('change', async () => {
+    const f = imp.files && imp.files[0]; if (!f) return;
+    try {
+      const txt = await f.text(), d = JSON.parse(txt);
+      if (!d.core) throw new Error('arquivo inválido');
+      if (!(await confirmar('Restaurar backup', 'O orçamento atual será substituído pelo conteúdo do arquivo.', 'Restaurar'))) return;
+      await Store.salvaCore(d.core);
+      for (const l of (d.lancamentos || [])) await Store.gravaLancamento(l);
+      for (const e of (d.entradas || [])) await Store.gravaEntrada(e);
+      toast('Backup restaurado.', 'good'); App.render();
+    } catch (e) { toast('Não consegui ler esse arquivo.', 'bad'); }
+  });
+  const reset = $('#resetTudo');
+  if (reset) reset.addEventListener('click', async () => {
+    if (!(await confirmar('Voltar aos valores iniciais', 'Lotes, setores e premissas voltam aos números da planilha original. Os lançamentos são mantidos.', 'Restaurar'))) return;
+    await Store.salvaCore(clone(DEFAULT_CORE)); toast('Orçamento restaurado.', 'good'); App.render();
+  });
+}
+
+/* ---------------------------------------------------------------- painel do setor */
+const ABAS_SETOR = [
+  { id: 'painel', nome: 'Meu painel' },
+  { id: 'novo', nome: 'Lançar gasto' },
+  { id: 'meus', nome: 'Meus lançamentos' },
+  { id: 'dados', nome: 'Meus dados' }
+];
+
+function telaSetor() {
+  const c = calcular();
+  const s = c.setores.find(x => x.id === App.sessao.setorId);
+  if (!s) return telaLogin('setor');
+  const aba = App.aba || 'painel';
+  const abas = ABAS_SETOR.map(a => a.id === 'meus' && s.pendentesQtd ? Object.assign({}, a, { badge: s.pendentesQtd }) : a);
+  let corpo = '';
+  if (aba === 'painel') corpo = sPainel(s, c);
+  else if (aba === 'novo') corpo = sNovo(s, c);
+  else if (aba === 'meus') corpo = sMeus(s);
+  else corpo = sDados(s);
+  return casca(s.nome, 'Painel do setor · ' + s.nome, abas, aba, corpo);
+}
+
+function sPainel(s, c) {
+  const recusados = s.lancamentos.filter(l => l.status === 'rejeitado');
+  const porCategoria = {};
+  s.lancamentos.filter(l => l.status !== 'rejeitado').forEach(l => {
+    const k = l.categoria || 'Outros'; porCategoria[k] = (porCategoria[k] || 0) + (Number(l.valor) || 0);
+  });
+  const cats = Object.keys(porCategoria).map((k, i) => ({ nome: k, valor: porCategoria[k], cor: CORES[i % CORES.length] })).sort((a, b) => b.valor - a.valor);
+  const ultimos = s.lancamentos.slice().sort((a, b) => (b.criadoEm || '').localeCompare(a.criadoEm || '')).slice(0, 4);
+  const pctAprov = s.orcamento > 0 ? Math.min(100, s.aprovado / s.orcamento * 100) : 0;
+  const pctPend = s.orcamento > 0 ? Math.min(100 - pctAprov, s.pendente / s.orcamento * 100) : 0;
+
+  return '<div class="caixa">' +
+    '<div class="lab">Saldo disponível para o setor ' + esc(s.nome)+'</div>' +
+    '<div class="big ' + (s.saldo < 0 ? 'neg' : '') + '">' + money(s.saldo) + '</div>' +
+    '<div class="sub">de ' + money(s.orcamento) + ' de verba' + (s.aporte ? ' (inclui ' + money(s.aporte) + ' em aportes)' : '') + '</div>' +
+    '<div class="meter"><i class="a" style="width:' + pctAprov + '%"></i><i class="b" style="width:' + pctPend + '%"></i></div>' +
+    '<div class="legend"><span><b>' + money(s.aprovado) + '</b> aprovado</span><span><b>' + money(s.pendente) + '</b> aguardando análise</span><span><b>' + pct(s.consumo) + '</b> da verba usada</span></div>' +
+    '</div>' +
+    '<div class="kpis mt">' +
+    kpi('Como sua verba é calculada', s.tipo === 'fixo' ? 'Valor fixo' : s.tipo === 'percentual' ? pct(s.percentual) + ' da receita' : money(s.porInscrito) + ' por inscrito',
+      s.tipo === 'porInscrito' ? int(c.inscritos) + ' inscritos hoje' : s.tipo === 'percentual' ? 'receita de ' + money0(c.receitaTotal) : 'definido pela coordenação') +
+    kpi('Lançamentos', int(s.qtd), s.pendentesQtd ? s.pendentesQtd + ' aguardando análise' : 'nenhum pendente') +
+    kpi('A receber de volta', money(s.aReembolsar), s.qtdReembolsos ? s.qtdReembolsos + ' reembolso(s) em aberto' : 'nada em aberto') +
+    kpi('Inscritos no evento', int(c.inscritos), 'meta de ' + int(c.metaInscritos)) +
+    '</div>' +
+    (recusados.length ? '<div class="alert bad mt"><span>▲</span><div><b>' + recusados.length + ' lançamento(s) recusado(s).</b> Veja o motivo em Meus lançamentos e reenvie com a correção.</div></div>' : '') +
+    (s.saldo < 0 ? '<div class="alert bad mt"><span>▲</span><div>Seu setor passou da verba em <b>' + money(Math.abs(s.saldo)) + '</b>. Fale com a coordenação antes de novos gastos.</div></div>'
+      : s.consumo > 85 ? '<div class="alert warn mt"><span>●</span><div>Você já usou ' + pct(s.consumo) + ' da verba. Restam ' + money(s.saldo) + '.</div></div>' : '') +
+    '<div class="split mt">' +
+    '<div class="card"><div class="card-head"><h3>Últimos lançamentos</h3><button class="btn ghost sm" data-ir="meus">Ver todos</button></div><div class="card-body">' +
+    (ultimos.length ? ultimos.map(l => cartaoLancamento(l, false)).join('') : '<div class="empty"><b>Seu caixa está zerado de gastos</b>Quando lançar a primeira despesa, ela aparece aqui.<div class="mt"><button class="btn gold sm" data-ir="novo">Lançar o primeiro gasto</button></div></div>') +
+    '</div></div>' +
+    '<div class="card"><div class="card-head"><h3>Gasto por categoria</h3></div><div class="card-body">' +
+    (cats.length ? donut(cats, 'lançado', money0(s.comprometido)) + '<div class="legend-row">' + cats.map(x => '<span><i style="background:' + x.cor + '"></i>' + esc(x.nome) + ' · ' + money0(x.valor) + '</span>').join('') + '</div>'
+      : '<div class="empty small">Sem gastos lançados até agora.</div>') +
+    '</div></div></div>';
+}
+
+function sNovo(s, c) {
+  const ed = App.editando ? Store.lancamentos.find(l => l.id === App.editando) : null;
+  const r = (ed && ed.reembolso) || {};
+  const val = (k, fb) => esc(ed ? (ed[k] == null ? '' : ed[k]) : (fb || ''));
+  return '<div class="sec-title"><h2>' + (ed ? 'Corrigir lançamento' : 'Lançar um gasto') + '</h2><p>Saldo disponível agora: <b>' + money(s.saldo) + '</b>.</p></div>' +
+    '<div class="split"><div class="card"><div class="card-body">' +
+    '<div class="grid2">' +
+    '<label class="f"><span>Data do gasto</span><input type="date" id="gData" value="' + (ed ? esc(ed.data) : hoje()) + '"></label>' +
+    '<label class="f"><span>Valor</span><input class="inp" id="gValor" placeholder="0,00" value="' + (ed ? String(Number(ed.valor).toFixed(2)).replace('.', ',') : '') + '"></label>' +
+    '</div>' +
+    '<label class="f"><span>O que foi comprado ou contratado</span><input class="inp" id="gDesc" placeholder="Ex.: 200 camisetas do staff" value="' + val('descricao') + '"></label>' +
+    '<div class="grid3">' +
+    '<label class="f"><span>Categoria</span><select id="gCat">' + CATEGORIAS.map(x => '<option' + (ed && ed.categoria === x ? ' selected' : '') + '>' + x + '</option>').join('') + '</select></label>' +
+    '<label class="f"><span>Fornecedor</span><input class="inp" id="gForn" placeholder="Nome da loja" value="' + val('fornecedor') + '"></label>' +
+    '<label class="f"><span>Forma de pagamento</span><select id="gPag">' + PAGAMENTOS.map(x => '<option' + (ed && ed.pagamento === x ? ' selected' : '') + '>' + x + '</option>').join('') + '</select></label>' +
+    '</div>' +
+    '<label class="f"><span>Justificativa</span><textarea id="gJust" placeholder="Por que este gasto foi necessário, quantidades, para quem…">' + val('justificativa') + '</textarea></label>' +
+    '<label class="f"><span>Nota fiscal ou comprovante</span><input type="file" id="gArq" accept="image/*,application/pdf" multiple capture="environment"><p class="hint">Fotos são compactadas automaticamente. Pode anexar mais de um arquivo.</p></label>' +
+    '<div id="listaArq" class="anexos"></div>' +
+    '<div class="divider"></div>' +
+    '<label class="f" style="display:flex;gap:10px;align-items:flex-start">' +
+    '<input type="checkbox" id="gReemb" style="width:auto;margin-top:3px"' + (r.necessita ? ' checked' : '') + '>' +
+    '<span style="margin:0"><b>Paguei do meu bolso e preciso ser ressarcido</b><br><span class="hint">Informe abaixo para onde a coordenação deve devolver o valor.</span></span></label>' +
+    '<div id="boxReemb" style="display:' + (r.necessita ? 'block' : 'none') + '">' +
+    '<div class="grid2">' +
+    '<label class="f"><span>Forma de devolução</span><select id="rTipo"><option value="pix"' + (r.tipo !== 'conta' ? ' selected' : '') + '>Pix</option><option value="conta"' + (r.tipo === 'conta' ? ' selected' : '') + '>Conta bancária</option></select></label>' +
+    '<label class="f"><span>Titular</span><input class="inp" id="rTitular" value="' + esc(r.titular || s.responsavel || '') + '"></label>' +
+    '</div>' +
+    '<div id="boxPix" style="display:' + (r.tipo === 'conta' ? 'none' : 'block') + '">' +
+    '<label class="f"><span>Chave Pix</span><input class="inp" id="rChave" placeholder="CPF, telefone, e-mail ou chave aleatória" value="' + esc(r.chave || s.pix || '') + '"></label></div>' +
+    '<div id="boxConta" style="display:' + (r.tipo === 'conta' ? 'block' : 'none') + '"><div class="grid3">' +
+    '<label class="f"><span>Banco</span><input class="inp" id="rBanco" value="' + esc(r.banco || '') + '"></label>' +
+    '<label class="f"><span>Agência</span><input class="inp" id="rAg" value="' + esc(r.agencia || '') + '"></label>' +
+    '<label class="f"><span>Conta</span><input class="inp" id="rConta" value="' + esc(r.conta || '') + '"></label>' +
+    '</div></div></div>' +
+    '<div class="row mt"><button class="btn gold" id="gSalvar">' + (ed ? 'Reenviar para análise' : 'Enviar lançamento') + '</button>' +
+    (ed ? '<button class="btn ghost" id="gCancelar">Cancelar</button>' : '') +
+    '<span class="small muted" id="gAviso"></span></div>' +
+    '</div></div>' +
+    '<div class="card pad"><h3>Como funciona</h3><div class="divider"></div>' +
+    '<p class="small">O lançamento já desconta do seu saldo assim que enviado, mesmo antes da aprovação — assim ninguém gasta duas vezes o mesmo dinheiro.</p>' +
+    '<p class="small">A coordenação analisa, aprova ou pede correção. Se você pagou do próprio bolso, o reembolso entra na fila com seus dados de Pix.</p>' +
+    '<div class="divider"></div>' +
+    '<div class="tw"><table>' +
+    '<tr><td>Verba do setor</td><td class="num">' + money(s.orcamento) + '</td></tr>' +
+    '<tr><td>Já lançado</td><td class="num">' + money(s.comprometido) + '</td></tr>' +
+    '<tr class="tfoot"><td>Disponível</td><td class="num ' + (s.saldo < 0 ? 'negv' : 'pos') + '">' + money(s.saldo) + '</td></tr>' +
+    '</table></div></div></div>';
+}
+
+function sMeus(s) {
+  const lista = s.lancamentos.slice().sort((a, b) => (b.data || '').localeCompare(a.data || ''));
+  return '<div class="sec-title"><h2>Meus lançamentos</h2><p>' + lista.length + ' registro(s) · ' + money(s.comprometido) + ' lançado.</p></div>' +
+    (lista.length ? lista.map(l => cartaoLancamento(l, false, '<div class="acts">' +
+      (l.status !== 'aprovado'
+        ? '<button class="btn sm ghost" data-edit="' + l.id + '">Editar</button><button class="btn sm ghost" data-del="' + l.id + '">Excluir</button>'
+        : '<span class="small muted">Aprovado pela coordenação — fale com ela para alterar.</span>') +
+      '</div>')).join('')
+      : '<div class="card"><div class="empty"><b>Nenhum lançamento ainda</b>Registre o primeiro gasto do setor.<div class="mt"><button class="btn gold sm" data-ir="novo">Lançar gasto</button></div></div></div>');
+}
+
+function sDados(s) {
+  return '<div class="sec-title"><h2>Meus dados</h2><p>Usados pela coordenação para falar com você e devolver valores adiantados.</p></div>' +
+    '<div class="split"><div class="card"><div class="card-body">' +
+    '<div class="grid2">' +
+    '<label class="f"><span>Responsável pelo setor</span><input class="inp" id="dResp" value="' + esc(s.responsavel || '') + '"></label>' +
+    '<label class="f"><span>WhatsApp ou e-mail</span><input class="inp" id="dCont" value="' + esc(s.contato || '') + '"></label>' +
+    '</div>' +
+    '<label class="f"><span>Chave Pix padrão para reembolsos</span><input class="inp" id="dPix" value="' + esc(s.pix || '') + '"><p class="hint">Ela já vem preenchida quando você marcar um gasto como reembolsável.</p></label>' +
+    '<button class="btn gold" id="dSalvar">Salvar meus dados</button>' +
+    '</div></div>' +
+    '<div class="card pad"><h3>Acesso</h3><div class="divider"></div>' +
+    '<p class="small">Login do setor: <b>' + esc(s.login || s.id) + '</b></p>' +
+    '<p class="small">Senha: definida pela coordenação.</p>' +
+    '<p class="small muted">Este painel mostra apenas os dados do setor ' + esc(s.nome) + '. Números de outros setores ficam com a coordenação.</p>' +
+    '</div></div>';
+}
+
+/* ------------------------------------------------ ligações do painel do setor */
+let anexosPendentes = [];
+
+function ligaSetor() {
+  ligaCasca();
+  const c = calcular();
+  const s = c.setores.find(x => x.id === App.sessao.setorId);
+  if (!s) return;
+  const aba = App.aba || 'painel';
+
+  $$('[data-ir]').forEach(b => b.addEventListener('click', () => { App.aba = b.dataset.ir; App.render(); }));
+  $$('[data-anexo]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); const p = a.dataset.anexo.split(':'); verAnexo(p[0], Number(p[1])); }));
+  $$('[data-edit]').forEach(b => b.addEventListener('click', () => { App.editando = b.dataset.edit; App.aba = 'novo'; anexosPendentes = []; App.render(); }));
+  $$('[data-del]').forEach(b => b.addEventListener('click', async () => {
+    if (await confirmar('Excluir lançamento', 'O valor volta para o seu saldo.', 'Excluir')) { await Store.apagaLancamento(b.dataset.del); toast('Lançamento excluído.'); App.render(); }
+  }));
+
+  if (aba === 'dados') {
+    $('#dSalvar').addEventListener('click', async () => {
+      const resp = $('#dResp').value.trim(), cont = $('#dCont').value.trim(), pix = $('#dPix').value.trim();
+      await Store.salvaCore(core => {
+        const alvo = core.setores.find(x => x.id === s.id);
+        if (alvo) { alvo.responsavel = resp; alvo.contato = cont; alvo.pix = pix; }
+        return core;
+      });
+      toast('Dados salvos.', 'good'); App.render();
+    });
+  }
+
+  if (aba !== 'novo') return;
+
+  const ed = App.editando ? Store.lancamentos.find(l => l.id === App.editando) : null;
+  if (ed && !anexosPendentes.length) anexosPendentes = (ed.anexos || []).slice();
+  if (!ed && App.editando) App.editando = null;
+
+  const pintaArquivos = () => {
+    $('#listaArq').innerHTML = anexosPendentes.length
+      ? anexosPendentes.map((a, i) => '<span class="anexo">📎 ' + esc(a.nome) + ' <button class="btn sm ghost" data-rm="' + i + '" style="padding:0 6px;margin-left:4px">✕</button></span>').join('')
+      : '<span class="small muted">Nenhum arquivo anexado.</span>';
+    $$('[data-rm]').forEach(b => b.addEventListener('click', () => { anexosPendentes.splice(Number(b.dataset.rm), 1); pintaArquivos(); }));
+  };
+  pintaArquivos();
+
+  $('#gArq').addEventListener('change', async e => {
+    const arquivos = Array.from(e.target.files || []);
+    e.target.value = '';
+    for (const f of arquivos) {
+      try {
+        $('#gAviso').textContent = 'Enviando ' + f.name + '…';
+        const meta = await Store.enviaAnexo(f);
+        anexosPendentes.push(meta);
+        pintaArquivos();
+      } catch (err) { toast(err.message || 'Não consegui anexar esse arquivo.', 'bad'); }
+    }
+    $('#gAviso').textContent = '';
+  });
+
+  const reemb = $('#gReemb'), box = $('#boxReemb'), rTipo = $('#rTipo');
+  reemb.addEventListener('change', () => { box.style.display = reemb.checked ? 'block' : 'none'; });
+  rTipo.addEventListener('change', () => {
+    $('#boxPix').style.display = rTipo.value === 'conta' ? 'none' : 'block';
+    $('#boxConta').style.display = rTipo.value === 'conta' ? 'block' : 'none';
+  });
+
+  const cancelar = $('#gCancelar');
+  if (cancelar) cancelar.addEventListener('click', () => { App.editando = null; anexosPendentes = []; App.aba = 'meus'; App.render(); });
+
+  $('#gSalvar').addEventListener('click', async () => {
+    const valor = parseNum($('#gValor').value);
+    const desc = $('#gDesc').value.trim();
+    if (!desc) return toast('Descreva o que foi comprado.', 'bad');
+    if (valor <= 0) return toast('Informe um valor maior que zero.', 'bad');
+    const restante = s.saldo + (ed ? Number(ed.valor) || 0 : 0);
+    if (valor > restante) {
+      const ok = await confirmar('Acima do saldo', 'Este gasto de ' + money(valor) + ' passa ' + money(valor - restante) + ' do saldo do setor. A coordenação verá o estouro ao analisar.', 'Enviar assim mesmo');
+      if (!ok) return;
+    }
+    const obj = {
+      id: ed ? ed.id : uid('lan'),
+      setor: s.id,
+      data: $('#gData').value || hoje(),
+      valor,
+      descricao: desc,
+      categoria: $('#gCat').value,
+      fornecedor: $('#gForn').value.trim(),
+      pagamento: $('#gPag').value,
+      justificativa: $('#gJust').value.trim(),
+      anexos: anexosPendentes.slice(),
+      status: 'pendente',
+      obs: '',
+      criadoEm: ed ? ed.criadoEm : new Date().toISOString(),
+      atualizadoEm: new Date().toISOString(),
+      reembolso: reemb.checked ? {
+        necessita: true,
+        tipo: rTipo.value,
+        titular: $('#rTitular').value.trim(),
+        chave: rTipo.value === 'conta' ? '' : $('#rChave').value.trim(),
+        banco: rTipo.value === 'conta' ? $('#rBanco').value.trim() : '',
+        agencia: rTipo.value === 'conta' ? $('#rAg').value.trim() : '',
+        conta: rTipo.value === 'conta' ? $('#rConta').value.trim() : '',
+        pago: (ed && ed.reembolso && ed.reembolso.pago) || false
+      } : { necessita: false }
+    };
+    await Store.gravaLancamento(obj);
+    anexosPendentes = []; App.editando = null;
+    toast(ed ? 'Lançamento reenviado.' : 'Lançamento enviado para análise.', 'good');
+    App.aba = 'meus'; App.render();
+  });
+}
+
+/* ---------------------------------------------------------------- inicialização */
+(function () {
+  try { const t = localStorage.getItem('at27:tema'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+  window.addEventListener('hashchange', () => { App.lerRota(); App.render(); });
+  App.lerRota();
+  Store.assina(() => agendaRender());
+  Store.iniciar().then(() => { App.lerRota(); App.render(); }).catch(e => {
+    console.error(e);
+    Store.pronto = true; Store.iniciarLocal(); App.render();
+  });
+})();
+</script>
+</body>
+</html>
